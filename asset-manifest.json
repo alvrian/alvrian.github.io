@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/alvrian/alvrian.github.io/static/css/main.9b5f3085.css",
+    "main.js": "/alvrian/alvrian.github.io/static/js/main.d3d710d9.js",
+    "static/js/453.f7398c53.chunk.js": "/alvrian/alvrian.github.io/static/js/453.f7398c53.chunk.js",
+    "static/media/sun.svg": "/alvrian/alvrian.github.io/static/media/sun.37f5195c46d80a4be83223d7ddc92d2c.svg",
+    "static/media/moon.svg": "/alvrian/alvrian.github.io/static/media/moon.4504823f728b970bcd031e8480f1a5c4.svg",
+    "index.html": "/alvrian/alvrian.github.io/index.html",
+    "main.9b5f3085.css.map": "/alvrian/alvrian.github.io/static/css/main.9b5f3085.css.map",
+    "main.d3d710d9.js.map": "/alvrian/alvrian.github.io/static/js/main.d3d710d9.js.map",
+    "453.f7398c53.chunk.js.map": "/alvrian/alvrian.github.io/static/js/453.f7398c53.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b5f3085.css",
+    "static/js/main.d3d710d9.js"
+  ]
+}
