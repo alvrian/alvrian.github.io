@@ -11,23 +11,18 @@ body{
 .light-mode {
   background-color: white;
   color: black;
-}
-
-.light-mode .card {
+}.light-mode .card {
   background-color: white;
   color: black;
 }
 
-/* Switch container */
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
   margin-bottom: 20px;
-}
-
-.switch input {
+}.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -55,13 +50,9 @@ body{
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
-}
-
-input:checked + .slider {
+}input:checked + .slider {
   background-color: #2196f3;
-}
-
-input:checked + .slider::before {
+}input:checked + .slider::before {
   transform: translateX(26px);
 }
 
@@ -75,13 +66,12 @@ input:checked + .slider::before {
 .snap-section {
   height: 100vh;
   scroll-snap-align: start;
-  padding: 2rem; /* or however you want to space things */
+  padding: 1rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .App .header {
-  /* width: 100%; */
   text-align: end;
   padding: 10px;
 }
@@ -108,38 +98,28 @@ input:checked + .slider::before {
   }
 }
 
-/* .scroll-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  scrollbar-color: black;
-  
-  background-color: black; 
-  color: rgb(125, 125, 125); 
-  
-
-  scrollbar-width: thin;
-  scrollbar-color: #888 transparent;
+@media screen and (max-width: 580px) {
+  .App .mainText {
+    font-size: 52px;
+  }
+  .snap-section {
+    padding: 20px;
+  }
+  .header .mode-icon {
+    font-size: 16px;
+    margin-right: 0px;
+    margin-left: 5px;
+  }.switch{
+    width: 45px;
+    height: 25px;;
+  }.slider::before {
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+  }
+  input:checked + .slider::before {
+    transform: translateX(20px);
+  }
 }
-
-.scroll-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scroll-container::-webkit-scrollbar-track {
-  background: transparent; 
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background-color: #464545;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-  transition: background-color 0.3s ease;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background-color: #666; 
-} */
 
