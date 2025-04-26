@@ -125,9 +125,10 @@ body{
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 620px) {
   .App .mainText {
     font-size: 52px;
+    margin-right: 100px;
   }
   .snap-section {
     padding: 20px;
@@ -145,7 +146,7 @@ body{
     left: 3px;
     bottom: 3px;
   }.header .mode-icon img {
-    margin-bottom: 2px;  
+    margin-top: 7.5px;  
   }
   input:checked + .slider::before {
     transform: translateX(20px);
