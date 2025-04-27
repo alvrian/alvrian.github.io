@@ -6,6 +6,7 @@ import LinkedinIcon from "./assets/linkedin-logo.svg";
 import GithubIcon from "./assets/github-logo.svg";
 import BottomArrow from "./assets/arrow-bottom.svg";
 import Dino from "./assets/Dino-gray.png";
+import Card from "./Component/Card"
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -94,25 +95,23 @@ function App() {
         <div>
           <p className="description">
             <span className="title" style={{ fontWeight: "bold" }}>
-              Computer Science Student | Developer{" "}
+            Application Developer | Computer Science Student
             </span>
             <br />
             <br />
-            I'm a Computer Science student at Binus University, specializing in
-            Software Engineering and Machine Learning. As part of the Binus
-            Master Track program, I’m set to graduate with both a Bachelor's and
-            Master’s degree in the near future. I have experience in developing
-            machine learning models and building software applications, using
-            frameworks like Laravel, React, and Express. Currently, I’m
-            interning as an applications developer at Indonesia's largest
-            private bank, gaining hands-on experience in real-world projects.
+            I'm a Computer Science student at Binus University, specializing in Software Engineering and Machine Learning. As part of the Binus
+            Master Track program, I’m set to graduate with both a Bachelor's and Master’s degree in the near future. I have experience in developing
+            machine learning models and building software applications, using frameworks like Laravel, React, and Express. Currently, I’m
+            interning as an applications developer at Indonesia's largest private bank, gaining hands-on experience in real-world projects.
           </p>
         </div>
       </div>
       {/* section 2 */}
       <div className="snap-section">
           <h2 className="mainText-section2">Potfolio</h2>
-          <div className="section2-main-content"></div>
+          <div className="section2-main-content">
+            <Card title = "test"/>
+          </div>
           <div className="Dino">
             <img src={Dino} alt="..." />
           </div>
