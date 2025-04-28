@@ -1,0 +1,61 @@
+.mainCardBody {
+    width: 35rem;
+    height: 20rem;
+    padding: 1rem;
+    background-color: rgba(71, 71, 71, 0.422);
+    border: 1px solid rgb(65, 65, 65);
+    border-radius: 5px;
+    box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.4);
+    cursor: pointer; /* Show a pointer cursor when hovering over the card */
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the popup is above other content */
+}
+
+.popupContent {
+    background-color: rgba(71, 71, 71, 0.422);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 30rem;
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    background-color: darkred;
+}
+
+@media screen and (max-width: 860px) {
+    .mainCardBody {
+        width: 20rem;
+        height: 18rem;
+        padding: 1rem;
+        background-color: rgba(71, 71, 71, 0.422);
+        border: 1px solid rgb(65, 65, 65);
+        border-radius: 5px;
+        box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.242);
+        cursor: pointer; /* Show a pointer cursor when hovering over the card */
+    }
+}

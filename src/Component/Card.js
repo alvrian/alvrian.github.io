@@ -1,9 +1,31 @@
-import "./Card.css"
+import React, { useState } from 'react';
+import './Card.css';
 
-export default function Card ({title}){
+export default function Card({ title }) {
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const handleCardClick = () => {
+        setPopupVisible(true);
+    };
+
+    const handleClosePopup = () => {
+        setPopupVisible(false);
+    };
+
     return (
         <div>
-            Hello world {title}
+            <div className="mainCardBody" onClick={handleCardClick}>
+                Hello world {title}
+            </div>
+
+            {isPopupVisible && (
+                <div className="popup">
+                    <div className="popupContent">
+                        <p>{title} - This is a pop-up</p>
+                        <button onClick={handleClosePopup}>Close</button>
+                    </div>
+                </div>
+            )}
         </div>
-    )
+    );
 }

@@ -1,0 +1,44 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden; /* Hide the overflowing cards */
+  }
+  
+  .carousel {
+    display: flex; /* Arrange cards horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Optional: Snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    padding: 10px 0; /* Add some padding */
+  }
+  
+  .carousel > * {
+    flex: 0 0 auto; /* Don't grow or shrink, take up their defined width */
+    width: 300px; /* Adjust card width as needed */
+    margin-right: 10px; /* Space between cards */
+    scroll-snap-align: start; /* Optional: Snap to the start of each card */
+  }
+  
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-arrow:hover {
+    opacity: 1;
+  }
+  
+  .carousel-arrow.left {
+    left: 10px;
+  }
+  
+  .carousel-arrow.right {
+    right: 10px;
+  }
