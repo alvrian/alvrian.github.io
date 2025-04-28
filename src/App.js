@@ -18,13 +18,13 @@ function App() {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 500;
+      carouselRef.current.scrollLeft -= 350;
       // setScrollPosition(carouselRef.current.scrollLeft);
     }
   };
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 500;
+      carouselRef.current.scrollLeft += 350;
       // setScrollPosition(carouselRef.current.scrollLeft);
     }
   };
