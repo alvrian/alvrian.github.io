@@ -1,11 +1,19 @@
 * {
   box-sizing: border-box;
-}
-
-body{
+  font-family: "Iter", sans-serif;
+}html, body {
+  scroll-behavior: smooth;
+}body{
   background-color: #111111;
   color: #ffffff;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.App{
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 .light-mode {
@@ -14,12 +22,6 @@ body{
 }.light-mode .card {
   background-color: white;
   color: black;
-}
-.App{
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
 }
 
 .App .header {
@@ -75,17 +77,14 @@ body{
   padding: 1rem;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-.App .mainText{
+  position: relative;
+}.App .mainText{
   font-size: 96px;
   animation: fadeSlideIn 0.5s ease-in;
   margin-right: 50px;
-  /* margin-top: 20px; */
 }
 
 .profile-links {
-  /* background-color: red; */
   margin-top: 20px;
   display: flex;
   justify-content: start;
@@ -116,6 +115,68 @@ body{
   height: 24px;
 }
 
+.bottom-arrow-direction {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 20px;
+  animation: bounce 2s ease-in-out infinite;
+  z-index: 1000;
+  color: white;
+  transition: opacity 0.3s ease;
+}.bottom-arrow-direction img {
+  width: 20px;
+  height: 20px;
+}.bottom-arrow-direction.hidden {
+  opacity: 0;
+}
+
+.App .mainText-section2{
+  font-size: 96px;
+  animation: fadeSlideIn 0.5s ease-in;
+  margin-top: 5px;
+}
+
+.description {
+  margin-top: 50px;
+  text-align: justify;
+  font-size: 24px;
+  margin-right: 240px;
+  animation: fadeSlideIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}.description .title{
+  font-size: 26px;
+}
+
+.parentDiv {
+  position: relative;
+}
+
+.Dino {
+  position: absolute;
+  bottom: 0%;
+  right: 0;
+}
+
+.Dino img {
+  width: 100px;
+  height: 100px;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+@keyframes bounce {
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+  100% { transform: translate(-50%, 0); }
+}
+
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -125,9 +186,15 @@ body{
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 860px) {
   .App .mainText {
-    font-size: 52px;
+    margin-top: 50px;
+    font-size: 40px;
+    margin-right: 60px;
+  }.App .mainText-section2 {
+    margin-top: 50px;
+    font-size: 40px;
+    margin-right: 60px;
   }
   .snap-section {
     padding: 20px;
@@ -145,7 +212,7 @@ body{
     left: 3px;
     bottom: 3px;
   }.header .mode-icon img {
-    margin-bottom: 2px;  
+    margin-top: 7.5px;  
   }
   input:checked + .slider::before {
     transform: translateX(20px);
@@ -155,6 +222,17 @@ body{
   }.profile-links .profile-button .profile-icon {
     width: 20px;
     height: 20px;
+  }.description {
+    margin-top: 20px;
+    font-size: 18px;
+    margin-right: 10px
+  }.description .title{
+    font-size: 22px;
+  }.Dino img{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    margin-right: 0.5rem;
   }
 }
 
