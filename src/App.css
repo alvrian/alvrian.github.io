@@ -7,6 +7,12 @@
   background-color: #111111;
   color: #ffffff;
   /* overflow: hidden; */
+}button, a {
+  -webkit-tap-highlight-color: transparent;
+}button:focus, button:active, a:focus, a:active {
+  outline: none;
+  background: none;
+  box-shadow: none;
 }
 
 .App{
@@ -16,18 +22,18 @@
   scroll-behavior: smooth;
 }
 
-.light-mode {
+.light-mode, .light-mode .card {
   background-color: white;
   color: black;
-}.light-mode .card {
-  background-color: white;
-  color: black;
-}.light-mode .mainCardBody{
+}
+.light-mode .mainCardBody{
   background-color: white;
   color: black;
   border: 1px solid rgb(180, 180, 180);
 }.light-mode .carousel-container .arrow {
   filter: brightness(35%);
+}.light-mode .bottom-arrow-direction img {
+  filter: brightness(10%);
 }
 
 .App .header {
@@ -144,7 +150,7 @@
 }
 
 .App .mainText-section2{
-  font-size: 96px;
+  font-size: 80px;
   animation: fadeSlideIn 0.5s ease-in;
   margin-top: 5px;
 }
@@ -169,9 +175,7 @@
   position: absolute;
   bottom: 0%;
   right: 0;
-}
-
-.Dino img {
+}.Dino img {
   width: 100px;
   height: 100px;
   padding: 1rem;
@@ -183,18 +187,14 @@
   align-items: center;
   position: relative;
   overflow: hidden; 
-  width: 100%; 
-}
-
-.section2-main-content {
+  width: 98%; 
+}.section2-main-content {
   display: flex;
   transition: all 0.3s ease-in-out;
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1rem; 
-}
-
-.carousel-container .arrow {
+}.carousel-container .arrow {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 1rem;
@@ -211,13 +211,33 @@
   transform: rotate(-90deg);
 }.carousel-container .arrow img {
   width: 2rem;
-}
-
-.section2-main-content::-webkit-scrollbar {
+}.section2-main-content::-webkit-scrollbar {
   display: none; 
+}.disabled-button {
+  pointer-events: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+}.disabled-button:focus {
+  outline: none;
+}.disabled-button:active {
+  background: none;
 }
 
+.snap-section .Publication {
+  background-color: #7474742b;
+  width: 50vw;
+  height: 18rem;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+}
 
+.Publication{
+  border-radius: 8px;
+  background-color: #01214b;
+  color: white;
+}
 @keyframes bounce {
   0% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, -10px); }
@@ -281,7 +301,28 @@
     padding: 10px;
     margin-right: 0.5rem;
   }.carousel-container .arrow img {
-    width: 1rem;
+    width: 0rem;
+  }.carousel-container {
+    flex-direction: column;
+    height: 75vh;
+  }.section2-main-content {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }.carousel-container .arrow.left {
+    left: 50%;
+    top: 10px;
+    transform: rotate(0deg) translateX(-50%);
+  }.carousel-container .arrow.right {
+    left: 50%;
+    bottom: 10px;
+    top: auto;
+    transform: rotate(180deg) translateX(-50%);
+  }.carousel-container .arrow button:active{
+    background-color: black;
+  }.snap-section .Publication {
+    width: 80vw;
   }
+  
 }
-

@@ -1,12 +1,16 @@
 .mainCardBody {
     width: 35rem;
-    height: 20rem;
+    height: 25rem;
     padding: 1rem;
     background-color: rgba(71, 71, 71, 0.422);
     border: 1px solid rgb(65, 65, 65);
     border-radius: 5px;
     box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.4);
     cursor: pointer; /* Show a pointer cursor when hovering over the card */
+}
+
+.mainCardBody:active{
+    background-color: none;
 }
 
 .popup {
@@ -49,7 +53,7 @@
 
 @media screen and (max-width: 860px) {
     .mainCardBody {
-        width: 20rem;
+        width: 80vw;
         height: 18rem;
         padding: 1rem;
         background-color: rgba(71, 71, 71, 0.422);

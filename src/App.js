@@ -12,20 +12,17 @@ function App() {
   const [lightMode, setLightMode] = useState(false);
   const [showArrow, setShowArrow] = useState(true);
   const containerRef = useRef(null);
-
   const carouselRef = useRef(null);
-  // const [scrollPosition, setScrollPosition] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 350;
-      // setScrollPosition(carouselRef.current.scrollLeft);
+      carouselRef.current.scrollLeft -= 450;
     }
   };
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 350;
-      // setScrollPosition(carouselRef.current.scrollLeft);
+      carouselRef.current.scrollLeft += 450;
     }
   };
 
@@ -55,17 +52,21 @@ function App() {
     if (container) {
       container.addEventListener("scroll", handleScroll);
     }
-
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 800);
+    };
+    window.addEventListener("resize", handleResize);
     return () => {
       if (container) {
         container.removeEventListener("scroll", handleScroll);
       }
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <div className="App" ref={containerRef}>
-      {/* section 1 */}
+      {/* Main Section */}
       <div className="snap-section">
         <div className="header">
           <label className="switch">
@@ -126,11 +127,15 @@ function App() {
           </p>
         </div>
       </div>
-      {/* section 2 */}
+      {/* Project Section */}
       <div className="snap-section">
-        <h2 className="mainText-section2">Potfolio</h2>
+        <h2 className="mainText-section2">Projects</h2>
         <div className="carousel-container">
-          <button className="arrow left" onClick={scrollLeft}>
+          <button
+            className={`arrow left ${isMobile ? "disabled-button" : ""}`}
+            onClick={!isMobile ? scrollLeft : undefined}
+            disabled={isMobile}
+          >
             <img src={BottomArrow} alt="..." />
           </button>
           <div className="section2-main-content" ref={carouselRef}>
@@ -141,20 +146,40 @@ function App() {
             <Card title="test5" />
             <Card title="test6" />
           </div>
-          <button className="arrow right" onClick={scrollRight}>
+          <button
+            className={`arrow right ${isMobile ? "disabled-button" : ""}`}
+            onClick={!isMobile ? scrollRight : undefined}
+            disabled={isMobile}
+          >
             <img src={BottomArrow} alt="..." />
           </button>
         </div>
-
+      </div>
+      {/* other section */}
+      <div className="snap-section">
+        <h3
+          style={{ fontSize: "48px", marginTop: "10px", marginBottom: "25px" }}
+        >
+          Other
+        </h3>
+        <div className="Publication">
+          <a
+            href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="profile-button">
+              <span>link</span>
+            </button>
+          </a>
+        </div>
         <div className="Dino">
           <img src={Dino} alt="..." />
         </div>
       </div>
-
       {/* addition */}
       {showArrow && (
         <div className="bottom-arrow-direction">
-          <span style={{ fontWeight: "bold", fontSize: "18px" }}>More</span>
           <img src={BottomArrow} alt="Scroll Down" />
         </div>
       )}
