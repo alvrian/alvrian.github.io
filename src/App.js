@@ -143,12 +143,22 @@ function App() {
             <img src={BottomArrow} alt="..." />
           </button>
           <div className="section2-main-content" ref={carouselRef}>
-            <Card title="test" />
-            <Card title="test2" />
-            <Card title="test3" />
-            <Card title="test4" />
-            <Card title="test5" />
-            <Card title="test6" />
+            <Card 
+              title="test title model" 
+              desc = "this is a test project to test this pop up ability Lorem ipsum it is this is a test project to test this pop up ability Lorem ipsum it is"
+              media = {ACA}
+            />
+            <Card 
+              title="test2 title model" 
+              media = {DL} 
+              desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
+            <Card 
+              title="test3 title model"
+              media = {UD} 
+              desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
+            <Card title="test4 title model" desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
+            <Card title="test5" desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
+            <Card title="test6" desc = "this is a test project to test this pop up ability this "/>
           </div>
           <button
             className={`arrow right ${isMobile ? "disabled-button" : ""}`}
@@ -161,9 +171,6 @@ function App() {
       </div>
       {/* other section */}
       <div className="snap-section">
-        {/* <h3 style={{ fontSize: "48px", marginTop: "10px", marginBottom: "25px" }}>
-          Other
-        </h3> */}
         <p className="sub-title">Publication</p>
         <div className="Publication">
           <p className="pub-p"> Comparison of Model Performance on Housing Business Using Linear Regression, Random Forest Regressor, SVR, and Neural Network</p>

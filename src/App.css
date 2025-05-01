@@ -151,7 +151,7 @@
 .App .mainText-section2{
   font-size: 34px;
   animation: fadeSlideIn 0.5s ease-in;
-  margin-top: 5px;
+  margin: 2.5rem 0;
 }
 
 .description {
@@ -202,6 +202,7 @@
   position: absolute;
   top: 40%;
   z-index: 10;
+  opacity: 0.8;
 }.carousel-container .arrow.left {
   left: 10px;
   transform: rotate(90deg);
@@ -233,7 +234,6 @@
   padding: 1rem;
   border-radius: 5px;
   margin-top: 10px;
-  /* box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 26%, 0.242); */
   transition: 0.4s;
 }.snap-section .Publication a{
   width: fit-content;
@@ -271,11 +271,14 @@
   width: fit-content;
   border-radius: 8px;
   margin-bottom: 1rem;
+  transition: 0.4s;
 }.snap-section .courses .courses-item{
   max-width: 26vw;
   height: fit-content;
   max-height: 15rem;
   padding: 10px;
+}.snap-section .courses:hover{
+  background-color: #7474743c;
 }
 
 
@@ -294,7 +297,7 @@
   }
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 940px) {
   .App .mainText {
     margin-top: 50px;
     font-size: 40px;

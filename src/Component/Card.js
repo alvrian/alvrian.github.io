@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-export default function Card({ title }) {
+export default function Card({ title, desc, media }) {
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const handleCardClick = () => {
@@ -15,7 +15,9 @@ export default function Card({ title }) {
     return (
         <div className='Card'>
             <div className="mainCardBody" onClick={handleCardClick}>
-                Hello world {title}
+                <p className='card-title'>{title}</p>
+                <p className='card-description'>{desc}</p>
+                <img className='card-media' src = {media} alt = "..."/>
             </div>
 
             {isPopupVisible && (

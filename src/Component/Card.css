@@ -1,14 +1,31 @@
 .Card .mainCardBody {
-    width: 35rem;
-    height: 25rem;
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    height: 26rem;
+    padding: 1rem 2rem;
     background-color: #74747411;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.4s;
-}
-.Card .mainCardBody:hover {
+}.Card .mainCardBody:hover {
     background-color: #7474743c;
+}.Card .mainCardBody:active {
+    opacity: 0.9;
+}.Card .mainCardBody .card-title{
+    flex: 1;
+    font-weight: bold;
+    font-size: 22px;
+}.Card .mainCardBody .card-description{
+    flex: 3;
+    font-size: 16px;
+}.Card .mainCardBody .card-media {
+    flex: 4;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    max-height: 55%;
 }
 
 .popup {
@@ -44,14 +61,20 @@
     background-color: darkred;
 }
 
-@media screen and (max-width: 860px) {
-    .mainCardBody {
-        width: 90vw;
-        height: 18rem;
-        padding: 1rem;
-        background-color: rgba(71, 71, 71, 0.422);
-        border-radius: 5px;
-        box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.242);
-        cursor: pointer; /* Show a pointer cursor when hovering over the card */
+@media screen and (max-width: 940px) {
+    .Card .mainCardBody {
+        width: 100%;
+        height: 20rem;
+        padding: 5px 1rem;
+    }.Card .mainCardBody .card-title{
+        font-size: 20px;
+    }.Card .mainCardBody .card-description{
+        font-size: 14px;
+    }.Card .mainCardBody .card-media {
+        flex: 3;
+        width: fit-content;
+        max-width: 90%;
+        height: fit-content;
+        max-height: 45%;
     }
 }
