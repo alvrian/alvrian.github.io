@@ -13,7 +13,7 @@ export default function Card({ title }) {
     };
 
     return (
-        <div>
+        <div className='Card'>
             <div className="mainCardBody" onClick={handleCardClick}>
                 Hello world {title}
             </div>

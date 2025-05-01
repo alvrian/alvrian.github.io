@@ -7,6 +7,9 @@ import GithubIcon from "./assets/github-logo.svg";
 import BottomArrow from "./assets/arrow-bottom.svg";
 import Dino from "./assets/Dino-gray.png";
 import Card from "./Component/Card";
+import ACA from "./assets/ACA.webp";
+import DL from "./assets/DL-Funda.webp"
+import UD from "./assets/udemy.webp";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -48,6 +51,7 @@ function App() {
         }
       }
     };
+    
     const container = containerRef.current;
     if (container) {
       container.addEventListener("scroll", handleScroll);
@@ -170,10 +174,16 @@ function App() {
           </a>
         </div>
         <p className="sub-title">Courses and Certifications</p>
+        <div className="courses">
+          <img className = "courses-item" src = {ACA} alt = "ACA"/>
+          <img className = "courses-item" src = {DL} alt = "Nvidia Deep Learning Fundamentals"/>
+          <img className = "courses-item" src = {UD} alt = "NLP"/>
+        </div>
         <div className="Dino">
           <img src={Dino} alt="..." />
         </div>
       </div>
+      
       {/* addition */}
       {showArrow && (
         <div className="bottom-arrow-direction">

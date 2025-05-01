@@ -1,16 +1,14 @@
-.mainCardBody {
+.Card .mainCardBody {
     width: 35rem;
     height: 25rem;
     padding: 1rem;
-    background-color: rgba(71, 71, 71, 0.422);
-    border: 1px solid rgb(65, 65, 65);
-    border-radius: 5px;
-    box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.4);
-    cursor: pointer; /* Show a pointer cursor when hovering over the card */
+    background-color: #74747411;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.4s;
 }
-
-.mainCardBody:active{
-    background-color: none;
+.Card .mainCardBody:hover {
+    background-color: #7474743c;
 }
 
 .popup {
@@ -24,22 +22,17 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Ensure the popup is above other content */
-}
-
-.popupContent {
+}.popupContent {
     background-color: rgba(71, 71, 71, 0.422);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 30rem;
     text-align: center;
-}
-
-.closeButton {
+}.closeButton {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    background-color: red;
     color: white;
     border: none;
     padding: 0.5rem;
@@ -53,11 +46,10 @@
 
 @media screen and (max-width: 860px) {
     .mainCardBody {
-        width: 80vw;
+        width: 90vw;
         height: 18rem;
         padding: 1rem;
         background-color: rgba(71, 71, 71, 0.422);
-        border: 1px solid rgb(65, 65, 65);
         border-radius: 5px;
         box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 57%, 0.242);
         cursor: pointer; /* Show a pointer cursor when hovering over the card */
