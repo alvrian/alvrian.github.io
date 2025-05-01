@@ -165,7 +165,7 @@ function App() {
           <p className="pub-p"> Comparison of Model Performance on Housing Business Using Linear Regression, Random Forest Regressor, SVR, and Neural Network</p>
           <a href="http://dx.doi.org/10.1016/j.procs.2024.10.343" target="_blank" rel="noopener noreferrer">
             <button className="publication-button">
-              <span>Publication Link</span>
+              <span>Read</span>
             </button>
           </a>
         </div>

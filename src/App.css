@@ -236,17 +236,19 @@
   border-radius: 5px;
   margin-top: 10px;
   box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 26%, 0.242);
+  transition: 0.4s;
 }.snap-section .Publication a{
   width: fit-content;
   margin: 25px 0;
 }.snap-section .Publication .publication-button{
   background-color: #01214b;
-  padding: 12px 20px;
-  border-radius: 5px;
+  padding: 15px 45px;
+  border-radius: 8px;
   border: none;
   color: white;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
 }.snap-section .Publication .publication-button:hover{
   opacity: 0.8;
 }.snap-section .Publication .publication-button:active{
@@ -255,12 +257,14 @@
   margin-top: 25px;
   font-size: 22px;
   font-weight: 600;
-  padding: "20px 0 10px 0"; 
-  margin-right: "1rem";
+  padding: 20px 0 10px 0; 
+  margin-right: 1rem;
 }.snap-section .sub-title{
   margin-top: 30px;
   font-size: 32px;
   font-weight: bold;
+}.snap-section .Publication:hover{
+  background-color: #7474743c;
 }
 
 
