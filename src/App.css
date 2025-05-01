@@ -130,7 +130,7 @@
 
 .bottom-arrow-direction {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -150,7 +150,7 @@
 }
 
 .App .mainText-section2{
-  font-size: 80px;
+  font-size: 64px;
   animation: fadeSlideIn 0.5s ease-in;
   margin-top: 5px;
 }
@@ -187,7 +187,7 @@
   align-items: center;
   position: relative;
   overflow: hidden; 
-  width: 98%; 
+  width: 99%; 
 }.section2-main-content {
   display: flex;
   transition: all 0.3s ease-in-out;
@@ -225,19 +225,45 @@
 }
 
 .snap-section .Publication {
-  background-color: #7474742b;
+  display: flex;
+  flex-direction: column;
+  background-color: #74747411;
   width: 50vw;
-  height: 18rem;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+  height: 16rem;
   padding: 1rem;
   border-radius: 5px;
   margin-top: 10px;
+  box-shadow: 3.1px 6.2px 6.2px hsla(0, 0%, 26%, 0.242);
+}.snap-section .Publication a{
+  width: fit-content;
+  margin: 25px 0;
+}.snap-section .Publication .publication-button{
+  background-color: #01214b;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}.snap-section .Publication .publication-button:hover{
+  opacity: 0.8;
+}.snap-section .Publication .publication-button:active{
+  opacity: 0.7;
+}.snap-section .Publication  .pub-p {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: 600;
+  padding: "20px 0 10px 0"; 
+  margin-right: "1rem";
+}.snap-section .sub-title{
+  margin-top: 30px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
-.Publication{
-  border-radius: 8px;
-  background-color: #01214b;
-  color: white;
-}
+
 @keyframes bounce {
   0% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, -10px); }
@@ -259,7 +285,7 @@
     font-size: 40px;
     margin-right: 60px;
   }.App .mainText-section2 {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 40px;
     margin-right: 60px;
   }
@@ -304,7 +330,7 @@
     width: 0rem;
   }.carousel-container {
     flex-direction: column;
-    height: 75vh;
+    height: 74vh;
   }.section2-main-content {
     flex-direction: column;
     overflow-x: hidden;
@@ -323,6 +349,22 @@
     background-color: black;
   }.snap-section .Publication {
     width: 80vw;
+    height: 15.5rem;
+  }.snap-section .Publication .pub-p{
+    font-size: 20px;
+  }.snap-section .sub-title {
+    font-size: 28px;
   }
   
+}
+
+@media screen and (max-width: 460px){
+  .snap-section .Publication {
+    width: 80vw;
+    height: 17rem;
+  }.snap-section .sub-title {
+    font-size: 24px;
+  }.snap-section .Publication .pub-p {
+    font-size: 18px;
+  }
 }

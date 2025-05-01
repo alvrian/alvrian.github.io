@@ -157,22 +157,19 @@ function App() {
       </div>
       {/* other section */}
       <div className="snap-section">
-        <h3
-          style={{ fontSize: "48px", marginTop: "10px", marginBottom: "25px" }}
-        >
+        {/* <h3 style={{ fontSize: "48px", marginTop: "10px", marginBottom: "25px" }}>
           Other
-        </h3>
+        </h3> */}
+        <p className="sub-title">Publication</p>
         <div className="Publication">
-          <a
-            href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="profile-button">
-              <span>link</span>
+          <p className="pub-p"> Comparison of Model Performance on Housing Business Using Linear Regression, Random Forest Regressor, SVR, and Neural Network</p>
+          <a href="http://dx.doi.org/10.1016/j.procs.2024.10.343" target="_blank" rel="noopener noreferrer">
+            <button className="publication-button">
+              <span>Publication Link</span>
             </button>
           </a>
         </div>
+        <p className="sub-title">Courses and Certifications</p>
         <div className="Dino">
           <img src={Dino} alt="..." />
         </div>
