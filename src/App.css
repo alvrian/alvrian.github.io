@@ -397,6 +397,16 @@
     width: 0rem;
   }.Game-addition{
     opacity: 0.25;
+  }.snap-section .courses{
+    padding: 10px;
+    flex-direction: column;
+    height: 50vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }.snap-section .courses .courses-item{
+    max-width: 24rem;
+    max-height: 25rem;
+    height: fit-content;
   }
 }
 
@@ -412,10 +422,7 @@
   }.snap-section .Publication .publication-button{
     padding: 10px 25px; 
   }.snap-section .courses{
-    flex-direction: column;
     height: 44vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
   }.snap-section .courses .courses-item{
     max-width: 22rem;
     max-height: 24rem;

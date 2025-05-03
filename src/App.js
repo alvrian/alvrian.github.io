@@ -12,6 +12,7 @@ import DL from "./assets/DL-Funda.webp"
 import UD from "./assets/udemy.webp";
 import Game from "./assets/game.png";
 import Corn from "./assets/CORN.png";
+import NLP from "./assets/nvidia-nlp.png";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -192,6 +193,7 @@ function App() {
         </div>
         <p className="sub-title">Courses and Certifications</p>
         <div className="courses">
+          <img className = "courses-item" src = {NLP} alt = "NLP"/>
           <img className = "courses-item" src = {ACA} alt = "ACA"/>
           <img className = "courses-item" src = {DL} alt = "Nvidia Deep Learning Fundamentals"/>
           <img className = "courses-item" src = {UD} alt = "NLP"/>
