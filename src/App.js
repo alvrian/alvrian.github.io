@@ -10,6 +10,8 @@ import Card from "./Component/Card";
 import ACA from "./assets/ACA.webp";
 import DL from "./assets/DL-Funda.webp"
 import UD from "./assets/udemy.webp";
+import Game from "./assets/game.png";
+import Corn from "./assets/CORN.png";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -70,7 +72,12 @@ function App() {
 
   return (
     <div className="App" ref={containerRef}>
-      {/* Main Section */}
+      {!lightMode && <div className="Game-addition">
+        <img src = {Game} alt = "..."/>
+      </div>}
+      {lightMode && <div>
+        <img src = {Dino} alt = "..." className="Game-addition-2"/>  
+      </div>}
       <div className="snap-section">
         <div className="header">
           <label className="switch">
@@ -144,21 +151,24 @@ function App() {
           </button>
           <div className="section2-main-content" ref={carouselRef}>
             <Card 
-              title="test title model" 
-              desc = "this is a test project to test this pop up ability Lorem ipsum it is this is a test project to test this pop up ability Lorem ipsum it is"
-              media = {ACA}
+              title="Sea-Land Segmentation" 
+              category = "Machine Learning"
+              desc = "Sea-Land Segmentation based on Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model From Optical Images"
+              media = {ACA} 
+              repo = "https://github.com/alvrian/compvis-deploy"
             />
             <Card 
-              title="test2 title model" 
-              media = {DL} 
-              desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
+              title="FarmByte" 
+              category = "App Development"
+              media = {Corn} 
+              desc = "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices."/>
             <Card 
               title="test3 title model"
               media = {UD} 
               desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
             <Card title="test4 title model" desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
             <Card title="test5" desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"/>
-            <Card title="test6" desc = "this is a test project to test this pop up ability this "/>
+
           </div>
           <button
             className={`arrow right ${isMobile ? "disabled-button" : ""}`}

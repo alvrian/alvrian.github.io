@@ -10,22 +10,29 @@
     cursor: pointer;
     transition: 0.4s;
 }.Card .mainCardBody:hover {
-    background-color: #7474743c;
+    background-color: #1310103c;
 }.Card .mainCardBody:active {
     opacity: 0.9;
-}.Card .mainCardBody .card-title{
-    flex: 1;
+}.Card .mainCardBody .card-title, .popup .popupContent .card-title{
+    height: 10%;
     font-weight: bold;
     font-size: 22px;
 }.Card .mainCardBody .card-description{
-    flex: 3;
-    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    height: auto;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
 }.Card .mainCardBody .card-media {
-    flex: 4;
     width: fit-content;
     max-width: 100%;
-    height: fit-content;
-    max-height: 55%;
+    height: 50%;
+}.Card .card-category, .popup .popupContent .card-title .card-category{
+    font-size: 16px;
+    height: 10%;
 }
 
 .popup {
@@ -34,30 +41,36 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure the popup is above other content */
+    z-index: 1000; 
 }.popupContent {
-    background-color: rgba(71, 71, 71, 0.422);
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(37, 37, 37, 0.827);
+    padding: 2rem 3rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 30rem;
+    width: 45rem;
+    text-align: justify;
+    margin-bottom: 20px;
+}.closeButtonContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}.popup .popupContent .closeButton { 
     text-align: center;
-}.closeButton {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
     color: white;
     border: none;
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 0.5rem 3rem;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-.closeButton:hover {
+}.popup .popupContent .card-media{
+    width: 10rem;
+}.popup .popupContent .closeButton:hover {
     background-color: darkred;
 }
 
