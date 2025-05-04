@@ -36,6 +36,10 @@
   filter: brightness(35%);
 }.light-mode .bottom-arrow-direction img {
   filter: brightness(10%);
+}.light-mode .popupContent{
+  background-color: white;
+}.light-mode .popupContent .closeButton{
+  background-color: #01214b;
 }
 
 .App .header {
