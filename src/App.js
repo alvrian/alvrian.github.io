@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
-import SunIcon from "./assets/sun.svg";
-import MoonIcon from "./assets/moon.svg";
-import LinkedinIcon from "./assets/linkedin-logo.svg";
-import GithubIcon from "./assets/github-logo.svg";
-import BottomArrow from "./assets/arrow-bottom.svg";
+import SunIcon from "./assets/icon/sun.svg";
+import MoonIcon from "./assets/icon/moon.svg";
+import LinkedinIcon from "./assets/icon/linkedin-logo.svg";
+import GithubIcon from "./assets/icon/github-logo.svg";
+import BottomArrow from "./assets/icon/arrow-bottom.svg";
 import Dino from "./assets/Dino-gray.png";
 import Card from "./Component/Card";
 import ACA from "./assets/courses/ACA.webp";
@@ -151,24 +151,27 @@ function App() {
               media = {CV} 
               repo = "https://github.com/alvrian/compvis-deploy"
               demo = {CvDemo}
-            />
-            <Card 
-              title="FarmByte" 
-              category = "App Development"
-              media = {Corn} 
-              desc = "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices."
-              repo = "https://github.com/alvrian/project-web-prog"
               link = "https://alvrian-compvis.streamlit.app/"
             />
             <Card 
+              title="FarmByte" 
+              category = "Web Development"
+              media = {Corn} 
+              desc = "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices."
+              repo = "https://github.com/alvrian/project-web-prog"
+      
+            />
+            <Card 
               title="Fitter"
+              category= "Machine Learning/Deep Learning"
               media = {Fitter} 
               desc = "Fitter is a Deep Learning created to recognize the type of food and its nutritional value. This is a collaborative project developed for Machine Learning course's final project. I work with 2 other members to create this project."
               repo = "https://github.com/tiffanyjoycelyn/fitter"
               demo= {FitterDemo}
             />
             <Card 
-              title="STEPCODE" 
+              title="STEPCODE"
+              category="WEB Development"
               desc = "STEPCODE is a collaborative project developed by me and four other members as part of our Software Engineering course. We created a platform to help individuals learn how to code, using technologies like typescript, React with Vite, Express, and Firebase. The unique feature of this platform is that each individuals can choose their own tutor based on others experience. Our team followed the SCRUM framework, organizing our work into sprints and holding daily standups to ensure everyone was aligned. We collaborated closely with a designated Product Owner who managed the backlog, and held sprint reviews to gather feedback on our progress."
               media = {SC}
               repo = "https://github.com/alvrian/AOL_SoftEng"
@@ -189,7 +192,6 @@ function App() {
           </button>
         </div>
       </div>
-      {/* other section */}
       <div className="snap-section">
         <p className="sub-title">Publication</p>
         <div className="Publication">
@@ -212,7 +214,6 @@ function App() {
         </div>
       </div>
       
-      {/* addition */}
       {showArrow && (
         <div className="bottom-arrow-direction">
           <img src={BottomArrow} alt="Scroll Down" />

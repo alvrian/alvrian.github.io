@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Card.css";
-import GithubIcon from "../assets/github-logo.svg";
+import GithubIcon from "../assets/icon/github-logo.svg";
+import LinkIcon from "../assets/icon/link-logo.svg";
 
 export default function Card({
   title,
@@ -50,10 +51,16 @@ export default function Card({
               <div className="card-button" >
                 <a href= {repo} target="_blank" rel="noopener noreferrer">
                   <button className="git-button">
-                    <img src={GithubIcon} className="profile-icon" alt="GitHub" />
-                    <span>GitHub</span>
+                    <img src={GithubIcon} alt="GitHub" />
+                    <span>Github Repo</span>
                   </button>
-                </a> 
+                </a>
+                <a href= {link} target="_blank" rel="noopener noreferrer">
+                  <button className="git-button">
+                    <img src={LinkIcon} className="profile-icon" alt="GitHub" />
+                    <span>Go to Project</span>
+                  </button>
+                </a>  
               </div>
             </div>
             <p>{desc}</p>

@@ -10,7 +10,7 @@
     cursor: pointer;
     transition: 0.4s;
 }.Card .mainCardBody:hover {
-    background-color: #1310103c;
+    background-color: #7474743c;
 }.Card .mainCardBody:active {
     opacity: 0.9;
 }.Card .mainCardBody .card-title, .popup .popupContent .card-title{
@@ -70,11 +70,13 @@
     cursor: pointer;
     transition: 0.3s;
 }.popup .popupContent .card-media{
-    width: 28vw;
+    width: 30vw;
 }.popup .popupContent .closeButton:hover {
     background-color: darkred;
 }.popup .popupContent .card-media-container{
     display: flex;
+    justify-content: space-around;
+    width: 100%;
 }.popup .card-button{
     padding: 0 1rem;
 }.popup .card-button a{
@@ -83,7 +85,8 @@
     display: flex;
     cursor: pointer;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    gap: 10px;
     background-color:  #00275a;
     color: #ffffff;
     padding: 10px 18px;
@@ -92,6 +95,17 @@
     font-weight: bold;
     border: none;
     margin: 10px 0;
+    width: 100%;
+    height: 40px;
+    transition: 0.4s;
+}.popup .card-button .git-button .profile-icon{
+    width: 21px;
+}.popup .card-button .git-button:hover{
+    background-color: #00275a;
+    opacity: 0.9;
+    transform: translateY(-2px);
+}.popup .card-button .git-button:active{
+    opacity: 0.8;
 }
 
 
@@ -110,5 +124,26 @@
         max-width: 90%;
         height: fit-content;
         max-height: 45%;
+    }.popupContent{
+        padding: 0.8rem;
+    }.popup .popupContent .card-media{
+        width: 95%;
+    }.popup .popupContent .card-media-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }.popup .card-button{
+        display: flex;
+        width: 94%;
+        justify-content: space-around;
+        padding: 0 0rem;
+    }.popup .card-button a{
+        text-decoration: none;
+    }.popup .card-button .git-button{
+        font-size: 12px;
+        margin: 8px 0;
+        width: 100%;
     }
 }
