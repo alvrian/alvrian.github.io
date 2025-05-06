@@ -55,12 +55,12 @@ export default function Card({
                     <span>Github Repo</span>
                   </button>
                 </a>
-                <a href= {link} target="_blank" rel="noopener noreferrer">
+                {link && <a href= {link} target="_blank" rel="noopener noreferrer">
                   <button className="git-button">
                     <img src={LinkIcon} className="profile-icon" alt="GitHub" />
                     <span>Go to Project</span>
                   </button>
-                </a>  
+                </a> }
               </div>
             </div>
             <p>{desc}</p>

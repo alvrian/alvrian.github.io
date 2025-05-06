@@ -19,6 +19,7 @@ import SC from "./assets/media/stepcode.png";
 import ScDemo from "./assets/demo/STEPCODE-Demo.mp4";
 import FitterDemo from "./assets/demo/Fitter-Demo.mp4";
 import CvDemo from "./assets/demo/CV-demo.mp4";
+import FbDemo from "./assets/demo/Farmbyte-demo.mp4";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -157,9 +158,9 @@ function App() {
               title="FarmByte" 
               category = "Web Development"
               media = {Corn} 
-              desc = "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices."
+              desc = "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices. We created this project as part of our Web Programming course. I work with 4 other members to create this project using Laravel."
               repo = "https://github.com/alvrian/project-web-prog"
-      
+              demo = {FbDemo}
             />
             <Card 
               title="Fitter"
@@ -171,16 +172,16 @@ function App() {
             />
             <Card 
               title="STEPCODE"
-              category="WEB Development"
+              category="Web Development"
               desc = "STEPCODE is a collaborative project developed by me and four other members as part of our Software Engineering course. We created a platform to help individuals learn how to code, using technologies like typescript, React with Vite, Express, and Firebase. The unique feature of this platform is that each individuals can choose their own tutor based on others experience. Our team followed the SCRUM framework, organizing our work into sprints and holding daily standups to ensure everyone was aligned. We collaborated closely with a designated Product Owner who managed the backlog, and held sprint reviews to gather feedback on our progress."
               media = {SC}
               repo = "https://github.com/alvrian/AOL_SoftEng"
               demo = {ScDemo}
             />
-            <Card 
+            {/* <Card 
               title="test5" 
               desc = "this is a test project to test this pop up ability this is a test project to test this pop up ability Lorem ipsum it is"
-            />
+            /> */}
 
           </div>
           <button
