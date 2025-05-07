@@ -177,6 +177,7 @@ function App() {
               media = {SC}
               repo = "https://github.com/alvrian/AOL_SoftEng"
               demo = {ScDemo}
+              link = "https://fitterdemo.streamlit.app/"
             />
             {/* <Card 
               title="test5" 

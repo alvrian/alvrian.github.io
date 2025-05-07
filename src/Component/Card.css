@@ -70,7 +70,7 @@
     cursor: pointer;
     transition: 0.3s;
 }.popup .popupContent .card-media{
-    width: 30vw;
+    width: 100%;
 }.popup .popupContent .closeButton:hover {
     background-color: darkred;
 }.popup .popupContent .card-media-container{
