@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.06bd0137.css",
-    "main.js": "/static/js/main.813c3dfc.js",
+    "main.js": "/static/js/main.ec6062d8.js",
     "static/js/453.f7398c53.chunk.js": "/static/js/453.f7398c53.chunk.js",
     "static/media/Farmbyte-demo.mp4": "/static/media/Farmbyte-demo.f6464f943d2c947eb52b.mp4",
     "static/media/CV-demo.mp4": "/static/media/CV-demo.d53dec5f65cf122dd00a.mp4",
@@ -9,11 +9,11 @@
     "static/media/Fitter-Demo.mp4": "/static/media/Fitter-Demo.25ac4f7734296d2ddc69.mp4",
     "static/media/stepcode.png": "/static/media/stepcode.fb82cfb9c3eb3a92d894.png",
     "static/media/CORN.png": "/static/media/CORN.d3941f419148187e42bb.png",
-    "static/media/AOL-compvis.png": "/static/media/AOL-compvis.e285fb12af5e85c7f668.png",
     "static/media/fitter-screen.png": "/static/media/fitter-screen.b147278d1cddaad9dd51.png",
     "static/media/nvidia-nlp.png": "/static/media/nvidia-nlp.01bbeb985eee7d35bf4a.png",
     "static/media/ACA.webp": "/static/media/ACA.1c2e1c82193796e6f9b2.webp",
     "static/media/udemy.webp": "/static/media/udemy.0861bf3576ebfc40c899.webp",
+    "static/media/Dover-Cover.png": "/static/media/Dover-Cover.c2aaa7b953376ff030bb.png",
     "static/media/DL-Funda.webp": "/static/media/DL-Funda.3b92e69e316c506468e6.webp",
     "static/media/game.png": "/static/media/game.f5aa15f4089bc88a3a80.png",
     "static/media/Dino-gray.png": "/static/media/Dino-gray.68176e1ced817378b33c.png",
@@ -25,11 +25,11 @@
     "index.html": "/index.html",
     "static/media/arrow-bottom.svg": "/static/media/arrow-bottom.517611b6d23481e02bbe564ebb42c6c9.svg",
     "main.06bd0137.css.map": "/static/css/main.06bd0137.css.map",
-    "main.813c3dfc.js.map": "/static/js/main.813c3dfc.js.map",
+    "main.ec6062d8.js.map": "/static/js/main.ec6062d8.js.map",
     "453.f7398c53.chunk.js.map": "/static/js/453.f7398c53.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06bd0137.css",
-    "static/js/main.813c3dfc.js"
+    "static/js/main.ec6062d8.js"
   ]
 }
