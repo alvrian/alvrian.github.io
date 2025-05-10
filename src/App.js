@@ -13,7 +13,7 @@ import UD from "./assets/courses/udemy.webp";
 import Game from "./assets/game.png";
 import Corn from "./assets/media/CORN.png";
 import NLP from "./assets/courses/nvidia-nlp.png";
-import CV from "./assets/media/AOL-compvis.png";
+import CV from "./assets/media/Dover-Cover.png";
 import Fitter from "./assets/media/fitter-screen.png";
 import SC from "./assets/media/stepcode.png";
 import ScDemo from "./assets/demo/STEPCODE-Demo.mp4";
@@ -146,7 +146,7 @@ function App() {
           </button>
           <div className="section2-main-content" ref={carouselRef}>
             <Card 
-              title="Sea-Land Segmentation" 
+              title="Dover" 
               category = "Machine Learning"
               desc = "Sea-Land Segmentation based on Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model From Optical Images. This is a project created for Computer Vision course that I took during 5th semester. I work with 3 other members to create this project. We use Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model to segment the image into sea and land. We use Python and OpenCV to create this project. We also use Streamlit to create the web app."
               media = {CV} 
@@ -176,7 +176,7 @@ function App() {
               category="Web Development"
               desc = "STEPCODE is a collaborative project developed by me and four other members as part of our Software Engineering course. We created a platform to help individuals learn how to code, using technologies like typescript, React with Vite, Express, and Firebase. The unique feature of this platform is that each individuals can choose their own tutor based on others experience. Our team followed the SCRUM framework, organizing our work into sprints and holding daily standups to ensure everyone was aligned. We collaborated closely with a designated Product Owner who managed the backlog, and held sprint reviews to gather feedback on our progress."
               media = {SC}
-              repo = "https://github.com/alvrian/AOL_SoftEng"
+              repo = "https://github.com/Andrew7-7/AOL_SoftEng"
               demo = {ScDemo}
             />
             {/* <Card 
