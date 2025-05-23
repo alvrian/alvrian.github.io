@@ -106,6 +106,7 @@ function App() {
           </span>
         </div>
         <h2 className="mainText">Alvrian Timotius</h2>
+        
         <div className="profile-links">
           <a href="https://www.linkedin.com/in/alvrian-timotius/" target="_blank" rel="noopener noreferrer">
             <button className="profile-button">
@@ -132,6 +133,8 @@ function App() {
             interning as an applications developer at Indonesia's largest private bank, gaining hands-on experience in real-world projects.
           </p>
         </div>
+        <p style = {{visibility: "hidden", height: "0"}}>alvrian timotius hinandra</p>
+        <p style = {{visibility: "hidden", height: "0"}}>Binus University</p>
       </div>
       {/* Project Section */}
       <div className="snap-section">
