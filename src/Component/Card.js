@@ -22,6 +22,11 @@ export default function Card({
     setPopupVisible(false);
   };
 
+  function getMediaType(src) {
+    if (/\.(mp4|webm|ogg)$/i.test(src)) return "video";
+    else return "image";
+  }
+
   return (
     <div className="Card">
       <div className="mainCardBody" onClick={handleCardClick}>
@@ -38,34 +43,47 @@ export default function Card({
         <div className="popup">
           <div className="popupContent">
             <p className="card-title">
-              {title}<br />
+              {title}
+              <br />
               <p className="card-category">{category}</p>
             </p>
             <div className="card-media-container">
               <div>
-                <video className="card-media" controls autoplay>
-                  <source src={demo} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {getMediaType(demo) === "image" ? (
+                  <img className="card-media" src={demo} alt="..." />
+                ) : (
+                  <video className="card-media" controls autoplay>
+                    <source src={demo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </div>
-              <div className="card-button" >
-                <a href= {repo} target="_blank" rel="noopener noreferrer">
+              <div className="card-button">
+                <a href={repo} target="_blank" rel="noopener noreferrer">
                   <button className="git-button">
                     <img src={GithubIcon} alt="GitHub" />
                     <span>Github Repo</span>
                   </button>
                 </a>
-                {link && <a href= {link} target="_blank" rel="noopener noreferrer">
-                  <button className="git-button">
-                    <img src={LinkIcon} className="profile-icon" alt="GitHub" />
-                    <span>Go to Project</span>
-                  </button>
-                </a> }
+                {link && (
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    <button className="git-button">
+                      <img
+                        src={LinkIcon}
+                        className="profile-icon"
+                        alt="GitHub"
+                      />
+                      <span>Go to Project</span>
+                    </button>
+                  </a>
+                )}
               </div>
             </div>
             <p>{desc}</p>
             <div className="closeButtonContainer">
-                <button className="closeButton" onClick={handleClosePopup}>Close</button>
+              <button className="closeButton" onClick={handleClosePopup}>
+                Close
+              </button>
             </div>
           </div>
         </div>

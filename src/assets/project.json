@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Fitter Mobile",
+    "category": "Mobile Development",
+    "desc": "Fitter mobile is a mobile application version of my previous project, Fitter. This Application is created using React Native, Expo, and Firebase. The main feature of this application is to recognize the type of food and its nutritional value using computer vision. This app is still under development. The prebuilt application can be downloaded on Github Repository.",
+    "media": "FMobile",
+    "repo": "https://github.com/alvrian/fitter-mobile",
+    "demo": "FMobileDemo"
+  },
+  {
+    "title": "Dover",
+    "category": "Machine Learning",
+    "desc": "Sea-Land Segmentation based on Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model From Optical Images. This is a project created for Computer Vision course that I took during 5th semester. I work with 3 other members to create this project. We use Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model to segment the image into sea and land. We use Python and OpenCV to create this project. We also use Streamlit to create the web app.",
+    "media": "CV",
+    "repo": "https://github.com/alvrian/compvis-deploy",
+    "demo": "CvDemo",
+    "link": "https://alvrian-compvis.streamlit.app/"
+  },
+  {
+    "title": "FarmByte",
+    "category": "Web Development",
+    "desc": "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices. We created this project as part of our Web Programming course. I work with 4 other members to create this project using Laravel.",
+    "media": "Corn",
+    "repo": "https://github.com/alvrian/project-web-prog",
+    "demo": "FbDemo"
+  },
+  {
+    "title": "Fitter",
+    "category": "Machine Learning/Deep Learning",
+    "desc": "Fitter is a Deep Learning created to recognize the type of food and its nutritional value. This is a collaborative project developed for Machine Learning course's final project. I work with 2 other members to create this project.",
+    "media": "Fitter",
+    "repo": "https://github.com/tiffanyjoycelyn/fitter",
+    "demo": "FitterDemo",
+    "link": "https://fitterdemo.streamlit.app/"
+  },
+  {
+    "title": "STEPCODE",
+    "category": "Web Development",
+    "desc": "STEPCODE is a collaborative project developed by me and four other members as part of our Software Engineering course. We created a platform to help individuals learn how to code, using technologies like typescript, React with Vite, Express, and Firebase. The unique feature of this platform is that each individuals can choose their own tutor based on others experience. Our team followed the SCRUM framework, organizing our work into sprints and holding daily standups to ensure everyone was aligned. We collaborated closely with a designated Product Owner who managed the backlog, and held sprint reviews to gather feedback on our progress.",
+    "media": "SC",
+    "repo": "https://github.com/Andrew7-7/AOL_SoftEng",
+    "demo": "ScDemo"
+  }
+]
