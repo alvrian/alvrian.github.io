@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.06bd0137.css",
-    "main.js": "/static/js/main.a106e763.js",
+    "main.js": "/static/js/main.7deff08c.js",
     "static/js/453.f7398c53.chunk.js": "/static/js/453.f7398c53.chunk.js",
     "static/media/Farmbyte-demo.mp4": "/static/media/Farmbyte-demo.f6464f943d2c947eb52b.mp4",
     "static/media/CV-demo.mp4": "/static/media/CV-demo.d53dec5f65cf122dd00a.mp4",
     "static/media/STEPCODE-Demo.mp4": "/static/media/STEPCODE-Demo.9fa03203a6be12e3bf29.mp4",
     "static/media/Fitter-Demo.mp4": "/static/media/Fitter-Demo.25ac4f7734296d2ddc69.mp4",
+    "static/media/fitter_logo.png": "/static/media/fitter_logo.9355f655822091449239.png",
     "static/media/stepcode.png": "/static/media/stepcode.fb82cfb9c3eb3a92d894.png",
+    "static/media/fitter-mobile-demo.png": "/static/media/fitter-mobile-demo.bb2d6c52e88549be0b39.png",
     "static/media/CORN.png": "/static/media/CORN.d3941f419148187e42bb.png",
     "static/media/fitter-screen.png": "/static/media/fitter-screen.b147278d1cddaad9dd51.png",
     "static/media/nvidia-nlp.png": "/static/media/nvidia-nlp.01bbeb985eee7d35bf4a.png",
@@ -25,11 +27,11 @@
     "index.html": "/index.html",
     "static/media/arrow-bottom.svg": "/static/media/arrow-bottom.517611b6d23481e02bbe564ebb42c6c9.svg",
     "main.06bd0137.css.map": "/static/css/main.06bd0137.css.map",
-    "main.a106e763.js.map": "/static/js/main.a106e763.js.map",
+    "main.7deff08c.js.map": "/static/js/main.7deff08c.js.map",
     "453.f7398c53.chunk.js.map": "/static/js/453.f7398c53.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06bd0137.css",
-    "static/js/main.a106e763.js"
+    "static/js/main.7deff08c.js"
   ]
 }
