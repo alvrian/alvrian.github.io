@@ -9,13 +9,12 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <BrowserRouter> */}
-    {/* <Routes>
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<App />} />
-        <Route path="dino" element={<Other />} />
-    </Routes> */}
-    <App />
-    {/* </BrowserRouter> */}
+        <Route path="/dino" element={<Other />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
