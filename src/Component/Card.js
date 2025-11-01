@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Card.css";
 import GithubIcon from "../assets/icon/github-logo.svg";
 import LinkIcon from "../assets/icon/link-logo.svg";
-import { GlassSurface } from "./GlassSurface";
+// import { GlassSurface } from "./GlassSurface";
 
 export default function Card({
   title,

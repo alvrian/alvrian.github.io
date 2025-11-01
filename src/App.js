@@ -16,16 +16,28 @@ import ScDemo from "./assets/demo/STEPCODE-Demo.mp4";
 //project json import
 import projects from "./assets/project.json";
 import Card from "./Component/Card";
+import StaggeredMenu from "./Component/StaggeredMenu";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
   const [showArrow, setShowArrow] = useState(true);
   const containerRef = useRef(null);
   const carouselRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 940);
   const mediaMap = { FMobile, CV, Corn, Fitter, SC };
   const demoMap = { FMobileDemo, CvDemo, FbDemo, FitterDemo, ScDemo };
+  const menuItems = [
+    { label: "Home", ariaLabel: "Go to home page", link: "/" },
+    { label: "About", ariaLabel: "Learn about us", link: "/about" },
+    { label: "Services", ariaLabel: "View our services", link: "/services" },
+    { label: "Contact", ariaLabel: "Get in touch", link: "/contact" },
+  ];
+
+  const socialItems = [
+    { label: "Twitter", link: "https://twitter.com" },
+    { label: "GitHub", link: "https://github.com" },
+    { label: "LinkedIn", link: "https://linkedin.com" },
+  ];
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -35,6 +47,18 @@ function App() {
   const scrollRight = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollLeft += 450;
+    }
+  };
+
+  const handleMenuOpen = () => {
+    if (containerRef.current) {
+      containerRef.current.style.overflow = "hidden";
+    }
+  };
+
+  const handleMenuClose = () => {
+    if (containerRef.current) {
+      containerRef.current.style.overflow = "auto"; // Or 'scroll'
     }
   };
 
@@ -66,7 +90,7 @@ function App() {
       container.addEventListener("scroll", handleScroll);
     }
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 800);
+      setIsMobile(window.innerWidth < 940);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -78,162 +102,181 @@ function App() {
   }, []);
 
   return (
-    <div className="App" ref={containerRef}>
-      {!lightMode && (
-        <div className="Game-addition">
-          <img src={Backing.Game} alt="..." />
-        </div>
-      )}
-      {lightMode && (
-        <div>
-          <img src={Backing.Dino} alt="..." className="Game-addition-2" />
-        </div>
-      )}
-      <div className="snap-section">
-        <div className="header">
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={!lightMode}
-              onChange={() => setLightMode(!lightMode)}
-            />
-            <span className="slider"></span>
-          </label>
-          <span className="mode-icon">
-            <img
-              key={lightMode ? "sun" : "moon"}
-              src={lightMode ? Icons.SunIcon : Icons.MoonIcon}
-              alt={lightMode ? "Sun" : "Moon"}
-              className="mode-icon"
-            />
-          </span>
-        </div>
-        <h2 className="mainText">Alvrian Timotius</h2>
-          <h2>Glass Surface Content</h2>
-        <div className="profile-links">
-          <a
-            href="https://www.linkedin.com/in/alvrian-timotius/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="profile-button">
-              <img
-                src={Icons.LinkedinIcon}
-                className="profile-icon"
-                alt="LinkedIn"
-              />
-              <span>LinkedIn</span>
-            </button>
-          </a>
-          <a
-            href="https://github.com/alvrian"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="profile-button">
-              <img
-                src={Icons.GithubIcon}
-                className="profile-icon"
-                alt="GitHub"
-              />
-              <span>GitHub</span>
-            </button>
-          </a>
-        </div>
-        <div>
-          <p className="description">
-            <span className="title" style={{ fontWeight: "bold" }}>
-              Application Developer | Computer Science Student
-            </span>
-            <br />
-            <br />
-            Computer Science student at Binus University, specializing in
-            Software Engineering and Machine Learning. As part of the Binus
-            Master Track program, set to graduate with both a Bachelor's and
-            Master’s degree in the near future. I have experience in developing
-            machine learning models and building software applications, using
-            frameworks like Laravel, React, and Express.
-          </p>
-        </div>
-        <p style={{ visibility: "hidden", height: "0" }}>
-          alvrian timotius hinandra
-        </p>
-        <p style={{ visibility: "hidden", height: "0" }}>Binus University</p>
+    <>
+      <div>
+        {/* <StaggeredMenu
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials={true}
+          displayItemNumbering={true}
+          menuButtonColor="#fff"
+          openMenuButtonColor="#030303ff"
+          changeMenuColorOnOpen={true}
+          colors={["#B19EEF", "#5227FF"]}
+          logoUrl="/path-to-your-logo.svg"
+          accentColor="#ff6b6b"
+          onMenuOpen={handleMenuOpen}
+          onMenuClose={handleMenuClose}
+        /> */}
       </div>
-      {/* Project Section */}
-      <div className="snap-section">
-        <h2 className="mainText-section2">Projects</h2>
-        <div className="carousel-container">
-          <button
-            className={`arrow left ${isMobile ? "disabled-button" : ""}`}
-            onClick={!isMobile ? scrollLeft : undefined}
-            disabled={isMobile}
-          >
-            <img src={Icons.BottomArrow} alt="..." />
-          </button>
-          <div className="section2-main-content" ref={carouselRef}>
-            {projects.map((p, i) => (
-              <Card
-                key={i}
-                title={p.title}
-                category={p.category}
-                desc={p.desc}
-                media={mediaMap[p.media]}
-                repo={p.repo}
-                demo={demoMap[p.demo]}
-                link={p.link}
-              />
-            ))}
+      <div className="App" ref={containerRef}>
+        {!lightMode && (
+          <div className="Game-addition">
+            <img src={Backing.Game} alt="..." />
           </div>
-          <button
-            className={`arrow right ${isMobile ? "disabled-button" : ""}`}
-            onClick={!isMobile ? scrollRight : undefined}
-            disabled={isMobile}
-          >
-            <img src={Icons.BottomArrow} alt="..." />
-          </button>
-        </div>
-      </div>
-      <div className="snap-section">
-        <p className="sub-title">Publication</p>
-        <div className="Publication">
-          <p className="pub-p">
-            {" "}
-            Comparison of Model Performance on Housing Business Using Linear
-            Regression, Random Forest Regressor, SVR, and Neural Network
+        )}
+        {lightMode && (
+          <div className="Game-addition-2">
+            <img src={Backing.Dino} alt="..." />
+          </div>
+        )}
+        <div className="snap-section">
+          <div className="header">
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={!lightMode}
+                onChange={() => setLightMode(!lightMode)}
+              />
+              <span className="slider"></span>
+            </label>
+            <span className="mode-icon">
+              <img
+                key={lightMode ? "sun" : "moon"}
+                src={lightMode ? Icons.SunIcon : Icons.MoonIcon}
+                alt={lightMode ? "Sun" : "Moon"}
+                className="mode-icon"
+              />
+            </span>
+          </div>
+          <h2 className="mainText">Alvrian Timotius</h2>
+          <h2>Glass Surface Content</h2>
+          <div className="profile-links">
+            <a
+              href="https://www.linkedin.com/in/alvrian-timotius/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="profile-button">
+                <img
+                  src={Icons.LinkedinIcon}
+                  className="profile-icon"
+                  alt="LinkedIn"
+                />
+                <span>LinkedIn</span>
+              </button>
+            </a>
+            <a
+              href="https://github.com/alvrian"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="profile-button">
+                <img
+                  src={Icons.GithubIcon}
+                  className="profile-icon"
+                  alt="GitHub"
+                />
+                <span>GitHub</span>
+              </button>
+            </a>
+          </div>
+          <div>
+            <p className="description">
+              <span className="title" style={{ fontWeight: "bold" }}>
+                Application Developer | Computer Science Student
+              </span>
+              <br />
+              <br />
+              Computer Science student at Binus University, specializing in
+              Software Engineering and Machine Learning. As part of the Binus
+              Master Track program, set to graduate with both a Bachelor's and
+              Master’s degree in the near future. I have experience in
+              developing machine learning models and building software
+              applications, using frameworks like Laravel, React, and Express.
+            </p>
+          </div>
+          <p style={{ visibility: "hidden", height: "0" }}>
+            alvrian timotius hinandra
           </p>
-          <a
-            href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="publication-button">
-              <span>Read</span>
+          <p style={{ visibility: "hidden", height: "0" }}>Binus University</p>
+        </div>
+        {/* Project Section */}
+        <div className="snap-section">
+          <h2 className="mainText-section2">Projects</h2>
+          <div className="carousel-container">
+            <button
+              className={`arrow left ${isMobile ? "disabled-button" : ""}`}
+              onClick={!isMobile ? scrollLeft : undefined}
+              disabled={isMobile}
+            >
+              <img src={Icons.BottomArrow} alt="..." />
             </button>
-          </a>
+            <div className="section2-main-content" ref={carouselRef}>
+              {projects.map((p, i) => (
+                <Card
+                  key={i}
+                  title={p.title}
+                  category={p.category}
+                  desc={p.desc}
+                  media={mediaMap[p.media]}
+                  repo={p.repo}
+                  demo={demoMap[p.demo]}
+                  link={p.link}
+                />
+              ))}
+            </div>
+            <button
+              className={`arrow right ${isMobile ? "disabled-button" : ""}`}
+              onClick={!isMobile ? scrollRight : undefined}
+              disabled={isMobile}
+            >
+              <img src={Icons.BottomArrow} alt="..." />
+            </button>
+          </div>
         </div>
-        <p className="sub-title">Courses and Certifications</p>
-        <div className="courses">
-          <img className="courses-item" src={Certificates.NLP} alt="NLP" />
-          <img className="courses-item" src={Certificates.ACA} alt="ACA" />
-          <img
-            className="courses-item"
-            src={Certificates.DL}
-            alt="Nvidia Deep Learning Fundamentals"
-          />
-          <img className="courses-item" src={Certificates.UD} alt="NLP" />
+        <div className="snap-section">
+          <p className="sub-title">Publication</p>
+          <div className="Publication">
+            <p className="pub-p">
+              {" "}
+              Comparison of Model Performance on Housing Business Using Linear
+              Regression, Random Forest Regressor, SVR, and Neural Network
+            </p>
+            <a
+              href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="publication-button">
+                <span>Read</span>
+              </button>
+            </a>
+          </div>
+          <p className="sub-title">Courses and Certifications</p>
+          <div className="courses">
+            <img className="courses-item" src={Certificates.NLP} alt="NLP" />
+            <img className="courses-item" src={Certificates.ACA} alt="ACA" />
+            <img
+              className="courses-item"
+              src={Certificates.DL}
+              alt="Nvidia Deep Learning Fundamentals"
+            />
+            <img className="courses-item" src={Certificates.UD} alt="NLP" />
+          </div>
+          <div className="Dino">
+            <img src={Backing.Dino} alt="..." />
+          </div>
         </div>
-        <div className="Dino">
-          <img src={Backing.Dino} alt="..." />
-        </div>
-      </div>
 
-      {showArrow && (
-        <div className="bottom-arrow-direction">
-          <img src={Icons.BottomArrow} alt="Scroll Down" />
-        </div>
-      )}
-    </div>
+        {showArrow && (
+          <div className="bottom-arrow-direction">
+            <img src={Icons.BottomArrow} alt="Scroll Down" />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
