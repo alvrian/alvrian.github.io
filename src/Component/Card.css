@@ -19,8 +19,8 @@
     font-size: 22px;
 }.Card .mainCardBody .card-description{
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical; */
     height: auto;
     max-width: 100%;
     overflow: hidden;
@@ -71,6 +71,7 @@
     transition: 0.3s;
 }.popup .popupContent .card-media{
     width: 100%;
+    max-width: 80%;
 }.popup .popupContent .closeButton:hover {
     background-color: darkred;
 }.popup .popupContent .card-media-container{

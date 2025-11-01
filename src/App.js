@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
-import  { Icons , Certificates, Backing } from "./assets";
+import { Icons, Certificates, Backing } from "./assets";
 // media imports
 import FMobile from "./assets/media/fitter_logo.png";
 import CV from "./assets/media/Dover-Cover.png";
@@ -109,7 +109,7 @@ function App() {
           </span>
         </div>
         <h2 className="mainText">Alvrian Timotius</h2>
-
+          <h2>Glass Surface Content</h2>
         <div className="profile-links">
           <a
             href="https://www.linkedin.com/in/alvrian-timotius/"
@@ -117,7 +117,11 @@ function App() {
             rel="noopener noreferrer"
           >
             <button className="profile-button">
-              <img src={Icons.LinkedinIcon} className="profile-icon" alt="LinkedIn" />
+              <img
+                src={Icons.LinkedinIcon}
+                className="profile-icon"
+                alt="LinkedIn"
+              />
               <span>LinkedIn</span>
             </button>
           </a>
@@ -127,7 +131,11 @@ function App() {
             rel="noopener noreferrer"
           >
             <button className="profile-button">
-              <img src={Icons.GithubIcon} className="profile-icon" alt="GitHub" />
+              <img
+                src={Icons.GithubIcon}
+                className="profile-icon"
+                alt="GitHub"
+              />
               <span>GitHub</span>
             </button>
           </a>
