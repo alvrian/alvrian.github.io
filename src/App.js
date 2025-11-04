@@ -151,7 +151,6 @@ function App() {
             </span>
           </div>
           <h2 className="mainText">Alvrian Timotius</h2>
-          <h2>Glass Surface Content</h2>
           <div className="profile-links">
             <a
               href="https://www.linkedin.com/in/alvrian-timotius/"
