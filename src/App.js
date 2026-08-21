@@ -1,22 +1,18 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { Icons, Certificates, Backing } from "./assets";
-// media imports
 import FMobile from "./assets/media/fitter_logo.png";
 import CV from "./assets/media/Dover-Cover.png";
 import Corn from "./assets/media/CORN.png";
 import Fitter from "./assets/media/fitter-screen.png";
 import SC from "./assets/media/stepcode.png";
-// demo imports
 import FMobileDemo from "./assets/demo/fitter-mobile-demo.png";
 import CvDemo from "./assets/demo/CV-demo.mp4";
 import FbDemo from "./assets/demo/Farmbyte-demo.mp4";
 import FitterDemo from "./assets/demo/Fitter-Demo.mp4";
 import ScDemo from "./assets/demo/STEPCODE-Demo.mp4";
-//project json import
 import projects from "./assets/project.json";
 import Card from "./Component/Card";
-import StaggeredMenu from "./Component/StaggeredMenu";
 
 function App() {
   const [lightMode, setLightMode] = useState(false);
@@ -24,75 +20,70 @@ function App() {
   const containerRef = useRef(null);
   const carouselRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 940);
+
   const mediaMap = { FMobile, CV, Corn, Fitter, SC };
   const demoMap = { FMobileDemo, CvDemo, FbDemo, FitterDemo, ScDemo };
-  const menuItems = [
-    { label: "Home", ariaLabel: "Go to home page", link: "/" },
-    { label: "About", ariaLabel: "Learn about us", link: "/about" },
-    { label: "Services", ariaLabel: "View our services", link: "/services" },
-    { label: "Contact", ariaLabel: "Get in touch", link: "/contact" },
+
+  const highlights = [
+    { value: "5+", label: "Featured builds" },
+    { value: "ML", label: "Computer vision focus" },
+    { value: "Full-stack", label: "React, Laravel, Express" },
   ];
 
-  const socialItems = [
-    { label: "Twitter", link: "https://twitter.com" },
-    { label: "GitHub", link: "https://github.com" },
-    { label: "LinkedIn", link: "https://linkedin.com" },
+  const expertise = [
+    "Machine learning",
+    "React applications",
+    "Laravel backends",
+    "Computer vision",
+    "Product-minded teamwork",
   ];
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 450;
+      carouselRef.current.scrollLeft -= 430;
     }
   };
+
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 450;
+      carouselRef.current.scrollLeft += 430;
     }
   };
 
-  const handleMenuOpen = () => {
-    if (containerRef.current) {
-      containerRef.current.style.overflow = "hidden";
-    }
-  };
-
-  const handleMenuClose = () => {
-    if (containerRef.current) {
-      containerRef.current.style.overflow = "auto"; // Or 'scroll'
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section && containerRef.current) {
+      containerRef.current.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
     }
   };
 
   useEffect(() => {
-    if (lightMode) {
-      document.body.classList.add("light-mode");
-    } else {
-      document.body.classList.remove("light-mode");
-    }
+    document.body.classList.toggle("light-mode", lightMode);
   }, [lightMode]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const scrollTop = containerRef.current.scrollTop;
-        const scrollHeight = containerRef.current.scrollHeight;
-        const clientHeight = containerRef.current.clientHeight;
+    const container = containerRef.current;
 
-        if (scrollTop + clientHeight >= scrollHeight - 20) {
-          setShowArrow(false);
-        } else {
-          setShowArrow(true);
-        }
-      }
+    const handleScroll = () => {
+      if (!container) return;
+
+      const isAtBottom =
+        container.scrollTop + container.clientHeight >= container.scrollHeight - 20;
+      setShowArrow(!isAtBottom);
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-    }
     const handleResize = () => {
       setIsMobile(window.innerWidth < 940);
     };
+
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+    }
     window.addEventListener("resize", handleResize);
+
     return () => {
       if (container) {
         container.removeEventListener("scroll", handleScroll);
@@ -102,180 +93,203 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div>
-        {/* <StaggeredMenu
-          position="right"
-          items={menuItems}
-          socialItems={socialItems}
-          displaySocials={true}
-          displayItemNumbering={true}
-          menuButtonColor="#fff"
-          openMenuButtonColor="#030303ff"
-          changeMenuColorOnOpen={true}
-          colors={["#B19EEF", "#5227FF"]}
-          logoUrl="/path-to-your-logo.svg"
-          accentColor="#ff6b6b"
-          onMenuOpen={handleMenuOpen}
-          onMenuClose={handleMenuClose}
-        /> */}
+    <div className="App" ref={containerRef}>
+      <div className="ambient-media" aria-hidden="true">
+        <img src={lightMode ? Backing.Dino : Backing.Game} alt="" />
       </div>
-      <div className="App" ref={containerRef}>
-        {!lightMode && (
-          <div className="Game-addition">
-            <img src={Backing.Game} alt="..." />
-          </div>
-        )}
-        {lightMode && (
-          <div className="Game-addition-2">
-            <img src={Backing.Dino} alt="..." />
-          </div>
-        )}
-        <div className="snap-section">
-          <div className="header">
-            <label className="switch">
-              <input
-                type="checkbox"
-                checked={!lightMode}
-                onChange={() => setLightMode(!lightMode)}
-              />
-              <span className="slider"></span>
-            </label>
-            <span className="mode-icon">
-              <img
-                key={lightMode ? "sun" : "moon"}
-                src={lightMode ? Icons.SunIcon : Icons.MoonIcon}
-                alt={lightMode ? "Sun" : "Moon"}
-                className="mode-icon"
-              />
-            </span>
-          </div>
-          <h2 className="mainText">Alvrian Timotius</h2>
-          <div className="profile-links">
-            <a
-              href="https://www.linkedin.com/in/alvrian-timotius/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="profile-button">
-                <img
-                  src={Icons.LinkedinIcon}
-                  className="profile-icon"
-                  alt="LinkedIn"
-                />
+
+      <header className="site-header">
+        <a className="brand-mark" href="#home" aria-label="Go to home">
+          AT
+        </a>
+        <label className="theme-toggle" aria-label="Toggle color theme">
+          <input
+            type="checkbox"
+            checked={!lightMode}
+            onChange={() => setLightMode((current) => !current)}
+          />
+          <span className="theme-track">
+            <span className="theme-thumb" />
+          </span>
+          <img
+            src={lightMode ? Icons.SunIcon : Icons.MoonIcon}
+            alt=""
+            className="theme-icon"
+          />
+        </label>
+      </header>
+
+      <nav className="section-nav" aria-label="Portfolio sections">
+        <a onClick={() => scrollToSection("home")}>Home</a>
+        <a onClick={() => scrollToSection("projects")}>Projects</a>
+        <a onClick={() => scrollToSection("credentials")}>Credentials</a>
+      </nav>
+
+      <main>
+        <section className="snap-section hero-section" id="home">
+          <div className="hero-copy">
+            <p className="eyebrow">Portfolio / Software Engineering / ML</p>
+            <h1>Alvrian Timotius</h1>
+            <p className="hero-role">
+              Application Developer and Computer Science Student
+            </p>
+            <p className="hero-description">
+              I build software products with a practical eye for user flows,
+              reliable architecture, and machine learning systems. Currently
+              studying Computer Science at Binus University with a focus on
+              software engineering and applied ML.
+            </p>
+
+            <div className="profile-links" aria-label="Profile links">
+              <a
+                className="profile-button"
+                href="https://www.linkedin.com/in/alvrian-timotius/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={Icons.LinkedinIcon} alt="" />
                 <span>LinkedIn</span>
-              </button>
-            </a>
-            <a
-              href="https://github.com/alvrian"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="profile-button">
-                <img
-                  src={Icons.GithubIcon}
-                  className="profile-icon"
-                  alt="GitHub"
-                />
+              </a>
+              <a
+                className="profile-button"
+                href="https://github.com/alvrian"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={Icons.GithubIcon} alt="" />
                 <span>GitHub</span>
-              </button>
-            </a>
+              </a>
+            </div>
           </div>
-          <div>
-            <p className="description">
-              <span className="title" style={{ fontWeight: "bold" }}>
-                Application Developer | Computer Science Student
-              </span>
-              <br />
-              <br />
-              Computer Science student at Binus University, specializing in
-              Software Engineering and Machine Learning. As part of the Binus
-              Master Track program, set to graduate with both a Bachelor's and
-              Master’s degree in the near future. I have experience in
-              developing machine learning models and building software
-              applications, using frameworks like Laravel, React, and Express.
+
+          <aside className="hero-panel" aria-label="Portfolio summary">
+            <div className="availability-card">
+              <span className="status-dot" />
+              <span>Open to software and ML opportunities</span>
+            </div>
+            <div className="highlight-grid">
+              {highlights.map((item) => (
+                <div className="highlight-card" key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="skill-list">
+              {expertise.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
+          </aside>
+
+          <p className="sr-only">alvrian timotius hinandra Binus University</p>
+        </section>
+
+        <section className="snap-section project-section" id="projects">
+          <div className="section-heading">
+            <p className="eyebrow">Selected Work</p>
+            <h2>Projects</h2>
+            <p>
+              A focused collection of web, mobile, and machine learning work,
+              with demos and repositories where available.
             </p>
           </div>
-          <p style={{ visibility: "hidden", height: "0" }}>
-            alvrian timotius hinandra
-          </p>
-          <p style={{ visibility: "hidden", height: "0" }}>Binus University</p>
-        </div>
-        {/* Project Section */}
-        <div className="snap-section">
-          <h2 className="mainText-section2">Projects</h2>
-          <div className="carousel-container">
+
+          <div className="carousel-shell">
             <button
-              className={`arrow left ${isMobile ? "disabled-button" : ""}`}
+              className="carousel-arrow left"
               onClick={!isMobile ? scrollLeft : undefined}
               disabled={isMobile}
+              aria-label="Previous projects"
             >
-              <img src={Icons.BottomArrow} alt="..." />
+              <img src={Icons.BottomArrow} alt="" />
             </button>
-            <div className="section2-main-content" ref={carouselRef}>
-              {projects.map((p, i) => (
+            <div className="project-track" ref={carouselRef}>
+              {projects.map((project) => (
                 <Card
-                  key={i}
-                  title={p.title}
-                  category={p.category}
-                  desc={p.desc}
-                  media={mediaMap[p.media]}
-                  repo={p.repo}
-                  demo={demoMap[p.demo]}
-                  link={p.link}
+                  key={project.title}
+                  title={project.title}
+                  category={project.category}
+                  desc={project.desc}
+                  media={mediaMap[project.media]}
+                  repo={project.repo}
+                  demo={demoMap[project.demo]}
+                  link={project.link}
                 />
               ))}
             </div>
             <button
-              className={`arrow right ${isMobile ? "disabled-button" : ""}`}
+              className="carousel-arrow right"
               onClick={!isMobile ? scrollRight : undefined}
               disabled={isMobile}
+              aria-label="Next projects"
             >
-              <img src={Icons.BottomArrow} alt="..." />
+              <img src={Icons.BottomArrow} alt="" />
             </button>
           </div>
-        </div>
-        <div className="snap-section">
-          <p className="sub-title">Publication</p>
-          <div className="Publication">
-            <p className="pub-p">
-              {" "}
-              Comparison of Model Performance on Housing Business Using Linear
-              Regression, Random Forest Regressor, SVR, and Neural Network
-            </p>
-            <a
-              href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="publication-button">
-                <span>Read</span>
-              </button>
-            </a>
-          </div>
-          <p className="sub-title">Courses and Certifications</p>
-          <div className="courses">
-            <img className="courses-item" src={Certificates.NLP} alt="NLP" />
-            <img className="courses-item" src={Certificates.ACA} alt="ACA" />
-            <img
-              className="courses-item"
-              src={Certificates.DL}
-              alt="Nvidia Deep Learning Fundamentals"
-            />
-            <img className="courses-item" src={Certificates.UD} alt="NLP" />
-          </div>
-          <div className="Dino">
-            <img src={Backing.Dino} alt="..." />
-          </div>
-        </div>
+        </section>
 
-        {showArrow && (
-          <div className="bottom-arrow-direction">
-            <img src={Icons.BottomArrow} alt="Scroll Down" />
+        <section className="snap-section credentials-section" id="credentials">
+          <div className="section-heading compact">
+            <p className="eyebrow">Research and Growth</p>
+            <h2>Credentials</h2>
+            <p>
+              Academic publication work, practical certifications, and
+              continuing study across AI and cloud fundamentals.
+            </p>
           </div>
-        )}
-      </div>
-    </>
+
+          <div className="credentials-row">
+            <article className="publication-card">
+              <p className="card-kicker">Publication</p>
+              <h3>
+                Comparative Analysis of Mamba, Itransformer, and Dlinear Models
+                on Spatial Dynamic Wind Power Dataset
+              </h3>
+              <a
+                className="text-link"
+                href="https://doi.org/10.1109/ISITIA71267.2026.11642365"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read publication
+              </a>
+            </article>
+            <article className="publication-card">
+              <p className="card-kicker">Publication</p>
+              <h3>
+                Comparison of Model Performance on Housing Business Using Linear
+                Regression, Random Forest Regressor, SVR, and Neural Network
+              </h3>
+              <a
+                className="text-link"
+                href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read publication
+              </a>
+            </article>
+          </div>
+
+          <div className="credentials-row cert-row">
+            <p className="card-kicker row-kicker">Courses and Certifications</p>
+            <div className="cert-scroll-track">
+              <img src={Certificates.NLP} alt="NVIDIA NLP certificate" className="cert-card" />
+              <img src={Certificates.ACA} alt="ACA certificate" className="cert-card" />
+              <img src={Certificates.DL} alt="NVIDIA Deep Learning Fundamentals certificate" className="cert-card" />
+              <img src={Certificates.UD} alt="Udemy certificate" className="cert-card" />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {showArrow && (
+        <div className="bottom-arrow-direction" aria-hidden="true">
+          <img src={Icons.BottomArrow} alt="" />
+        </div>
+      )}
+    </div>
   );
 }
 
