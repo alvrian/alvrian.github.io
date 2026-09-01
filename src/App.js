@@ -184,51 +184,7 @@ function App() {
 
           <p className="sr-only">alvrian timotius hinandra Binus University</p>
         </section>
-
-        <section className="snap-section project-section" id="projects">
-          <div className="section-heading">
-            <p className="eyebrow">Selected Work</p>
-            <h2>Projects</h2>
-            <p>
-              A focused collection of web, mobile, and machine learning work,
-              with demos and repositories where available.
-            </p>
-          </div>
-
-          <div className="carousel-shell">
-            <button
-              className="carousel-arrow left"
-              onClick={!isMobile ? scrollLeft : undefined}
-              disabled={isMobile}
-              aria-label="Previous projects"
-            >
-              <img src={Icons.BottomArrow} alt="" />
-            </button>
-            <div className="project-track" ref={carouselRef}>
-              {projects.map((project) => (
-                <Card
-                  key={project.title}
-                  title={project.title}
-                  category={project.category}
-                  desc={project.desc}
-                  media={mediaMap[project.media]}
-                  repo={project.repo}
-                  demo={demoMap[project.demo]}
-                  link={project.link}
-                />
-              ))}
-            </div>
-            <button
-              className="carousel-arrow right"
-              onClick={!isMobile ? scrollRight : undefined}
-              disabled={isMobile}
-              aria-label="Next projects"
-            >
-              <img src={Icons.BottomArrow} alt="" />
-            </button>
-          </div>
-        </section>
-
+        
         <section className="snap-section credentials-section" id="credentials">
           <div className="section-heading compact">
             <p className="eyebrow">Research and Growth</p>
@@ -282,6 +238,52 @@ function App() {
             </div>
           </div>
         </section>
+
+        <section className="snap-section project-section" id="projects">
+          <div className="section-heading">
+            <p className="eyebrow">Selected Work</p>
+            <h2>Projects</h2>
+            <p>
+              A focused collection of web, mobile, and machine learning work,
+              with demos and repositories where available.
+            </p>
+          </div>
+
+          <div className="carousel-shell">
+            <button
+              className="carousel-arrow left"
+              onClick={!isMobile ? scrollLeft : undefined}
+              disabled={isMobile}
+              aria-label="Previous projects"
+            >
+              <img src={Icons.BottomArrow} alt="" />
+            </button>
+            <div className="project-track" ref={carouselRef}>
+              {projects.map((project) => (
+                <Card
+                  key={project.title}
+                  title={project.title}
+                  category={project.category}
+                  desc={project.desc}
+                  media={mediaMap[project.media]}
+                  repo={project.repo}
+                  demo={demoMap[project.demo]}
+                  link={project.link}
+                />
+              ))}
+            </div>
+            <button
+              className="carousel-arrow right"
+              onClick={!isMobile ? scrollRight : undefined}
+              disabled={isMobile}
+              aria-label="Next projects"
+            >
+              <img src={Icons.BottomArrow} alt="" />
+            </button>
+          </div>
+        </section>
+
+
       </main>
 
       {showArrow && (
