@@ -71,7 +71,8 @@ function App() {
       if (!container) return;
 
       const isAtBottom =
-        container.scrollTop + container.clientHeight >= container.scrollHeight - 20;
+        container.scrollTop + container.clientHeight >=
+        container.scrollHeight - 20;
       setShowArrow(!isAtBottom);
     };
 
@@ -119,12 +120,41 @@ function App() {
         </label>
       </header>
 
-      <nav className="section-nav" aria-label="Portfolio sections">
+      {/* <nav className="section-nav" aria-label="Portfolio sections">
         <a onClick={() => scrollToSection("home")}>Home</a>
-        <a onClick={() => scrollToSection("projects")}>Projects</a>
         <a onClick={() => scrollToSection("credentials")}>Credentials</a>
-      </nav>
+        <a onClick={() => scrollToSection("projects")}>Projects</a>
+      </nav> */}
 
+      <nav className="section-nav" aria-label="Portfolio sections">
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("home");
+          }}
+        >
+          Home
+        </a>
+        <a
+          href="#credentials"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("credentials");
+          }}
+        >
+          Credentials
+        </a>
+        <a
+          href="#projects"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("projects");
+          }}
+        >
+          Projects
+        </a>
+      </nav>
       <main>
         <section className="snap-section hero-section" id="home">
           <div className="hero-copy">
@@ -184,7 +214,7 @@ function App() {
 
           <p className="sr-only">alvrian timotius hinandra Binus University</p>
         </section>
-        
+
         <section className="snap-section credentials-section" id="credentials">
           <div className="section-heading compact">
             <p className="eyebrow">Research and Growth</p>
@@ -231,10 +261,26 @@ function App() {
           <div className="credentials-row cert-row">
             <p className="card-kicker row-kicker">Courses and Certifications</p>
             <div className="cert-scroll-track">
-              <img src={Certificates.NLP} alt="NVIDIA NLP certificate" className="cert-card" />
-              <img src={Certificates.ACA} alt="ACA certificate" className="cert-card" />
-              <img src={Certificates.DL} alt="NVIDIA Deep Learning Fundamentals certificate" className="cert-card" />
-              <img src={Certificates.UD} alt="Udemy certificate" className="cert-card" />
+              <img
+                src={Certificates.NLP}
+                alt="NVIDIA NLP certificate"
+                className="cert-card"
+              />
+              <img
+                src={Certificates.ACA}
+                alt="ACA certificate"
+                className="cert-card"
+              />
+              <img
+                src={Certificates.DL}
+                alt="NVIDIA Deep Learning Fundamentals certificate"
+                className="cert-card"
+              />
+              <img
+                src={Certificates.UD}
+                alt="Udemy certificate"
+                className="cert-card"
+              />
             </div>
           </div>
         </section>
@@ -282,8 +328,6 @@ function App() {
             </button>
           </div>
         </section>
-
-
       </main>
 
       {showArrow && (
