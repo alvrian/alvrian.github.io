@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { Icons, Certificates, Backing } from "./assets";
+import { Certificates } from "./assets";
 import FMobile from "./assets/media/fitter_logo.png";
 import CV from "./assets/media/Dover-Cover.png";
 import Corn from "./assets/media/CORN.png";
@@ -13,328 +13,306 @@ import FitterDemo from "./assets/demo/Fitter-Demo.mp4";
 import ScDemo from "./assets/demo/STEPCODE-Demo.mp4";
 import projects from "./assets/project.json";
 import Card from "./Component/Card";
+import Icon from "./Component/Icon";
+
+// TODO: fill these in. Buttons that use them stay hidden while they are empty.
+// cvUrl can be a file in /public (e.g. "/Alvrian-Timotius-CV.pdf") or a Drive link.
+const CONTACT = {
+  email: "",
+  cvUrl: "",
+  github: "https://github.com/alvrian",
+  linkedin: "https://www.linkedin.com/in/alvrian-timotius/",
+};
+
+const mediaMap = { FMobile, CV, Corn, Fitter, SC };
+const demoMap = { FMobileDemo, CvDemo, FbDemo, FitterDemo, ScDemo };
+
+const publications = [
+  {
+    venue: "IEEE ISITIA · 2026",
+    title:
+      "Comparative Analysis of Mamba, iTransformer, and DLinear Models on Spatial Dynamic Wind Power Dataset",
+    url: "https://doi.org/10.1109/ISITIA71267.2026.11642365",
+  },
+  {
+    venue: "Procedia Computer Science · 2024",
+    title:
+      "Comparison of Model Performance on Housing Business Using Linear Regression, Random Forest Regressor, SVR, and Neural Network",
+    url: "https://doi.org/10.1016/j.procs.2024.10.343",
+  },
+];
+
+const certifications = [
+  {
+    issuer: "NVIDIA Deep Learning Institute",
+    name: "Building Transformer-Based Natural Language Processing Applications",
+    image: Certificates.NLP,
+  },
+  {
+    issuer: "NVIDIA Deep Learning Institute",
+    name: "Fundamentals of Deep Learning",
+    image: Certificates.DL,
+  },
+  {
+    issuer: "Alibaba Cloud",
+    name: "Alibaba Cloud Certified Associate: Cloud Computing",
+    image: Certificates.ACA,
+  },
+  {
+    issuer: "Udemy",
+    name: "Udemy course certificate", // TODO: replace with the course title
+    image: Certificates.UD,
+  },
+];
+
+const shippedProjects = projects.filter((p) => p.repo).length;
+
+const navItems = [
+  { id: "work", label: "Work" },
+  { id: "research", label: "Research" },
+  { id: "credentials", label: "Credentials" },
+  { id: "contact", label: "Contact" },
+];
+
+// The site uses HashRouter, so "#work" would be read as a route.
+// In-page links scroll with JavaScript instead.
+const scrollToSection = (event, id) => {
+  event.preventDefault();
+  const target = document.getElementById(id);
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 function App() {
-  const [lightMode, setLightMode] = useState(false);
-  const [showArrow, setShowArrow] = useState(true);
-  const containerRef = useRef(null);
-  const carouselRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 940);
-
-  const mediaMap = { FMobile, CV, Corn, Fitter, SC };
-  const demoMap = { FMobileDemo, CvDemo, FbDemo, FitterDemo, ScDemo };
-
-  const highlights = [
-    { value: "5+", label: "Featured builds" },
-    { value: "ML", label: "Computer vision focus" },
-    { value: "Full-stack", label: "React, Laravel, Express" },
-  ];
-
-  const expertise = [
-    "Machine learning",
-    "React applications",
-    "Laravel backends",
-    "Computer vision",
-    "Product-minded teamwork",
-  ];
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft -= 430;
+  const [lightMode, setLightMode] = useState(() => {
+    try {
+      return localStorage.getItem("theme") === "light";
+    } catch {
+      return false;
     }
-  };
-
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollLeft += 430;
-    }
-  };
-
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section && containerRef.current) {
-      containerRef.current.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
+  });
 
   useEffect(() => {
     document.body.classList.toggle("light-mode", lightMode);
+    try {
+      localStorage.setItem("theme", lightMode ? "light" : "dark");
+    } catch {
+      /* storage unavailable */
+    }
   }, [lightMode]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-
-    const handleScroll = () => {
-      if (!container) return;
-
-      const isAtBottom =
-        container.scrollTop + container.clientHeight >=
-        container.scrollHeight - 20;
-      setShowArrow(!isAtBottom);
-    };
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 940);
-    };
-
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-    }
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      if (container) {
-        container.removeEventListener("scroll", handleScroll);
-      }
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const mailto = CONTACT.email ? `mailto:${CONTACT.email}` : null;
 
   return (
-    <div className="App" ref={containerRef}>
-      <div className="ambient-media" aria-hidden="true">
-        <img src={lightMode ? Backing.Dino : Backing.Game} alt="" />
-      </div>
+    <div className="App">
+      <a className="skip-link" href="#work" onClick={(e) => scrollToSection(e, "work")}>
+        Skip to projects
+      </a>
 
       <header className="site-header">
-        <a className="brand-mark" href="#home" aria-label="Go to home">
-          AT
-        </a>
-        <label className="theme-toggle" aria-label="Toggle color theme">
-          <input
-            type="checkbox"
-            checked={!lightMode}
-            onChange={() => setLightMode((current) => !current)}
-          />
-          <span className="theme-track">
-            <span className="theme-thumb" />
-          </span>
-          <img
-            src={lightMode ? Icons.SunIcon : Icons.MoonIcon}
-            alt=""
-            className="theme-icon"
-          />
-        </label>
+        <div className="container header-inner">
+          <a className="brand" href="#top" onClick={(e) => scrollToSection(e, "top")} aria-label="Alvrian Timotius, back to top">
+            <span className="brand-mark">AT</span>
+            <span className="brand-name">Alvrian Timotius</span>
+          </a>
+
+          <div className="header-actions">
+            <button
+              type="button"
+              className="icon-button"
+              onClick={() => setLightMode((v) => !v)}
+              aria-label={lightMode ? "Switch to dark theme" : "Switch to light theme"}
+            >
+              <Icon name={lightMode ? "moon" : "sun"} />
+            </button>
+            {mailto && (
+              <a className="btn btn-primary btn-small" href={mailto}>
+                Email me
+              </a>
+            )}
+          </div>
+
+          <nav className="section-nav" aria-label="Sections">
+            {navItems.map((item) => (
+              <a key={item.id} href={`#${item.id}`} onClick={(e) => scrollToSection(e, item.id)}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </header>
 
-      {/* <nav className="section-nav" aria-label="Portfolio sections">
-        <a onClick={() => scrollToSection("home")}>Home</a>
-        <a onClick={() => scrollToSection("credentials")}>Credentials</a>
-        <a onClick={() => scrollToSection("projects")}>Projects</a>
-      </nav> */}
-
-      <nav className="section-nav" aria-label="Portfolio sections">
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("home");
-          }}
-        >
-          Home
-        </a>
-        <a
-          href="#credentials"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("credentials");
-          }}
-        >
-          Credentials
-        </a>
-        <a
-          href="#projects"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("projects");
-          }}
-        >
-          Projects
-        </a>
-      </nav>
-      <main>
-        <section className="snap-section hero-section" id="home">
+      <main id="top">
+        <section className="container hero" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">Portfolio / Software Engineering / ML</p>
-            <h1>Alvrian Timotius</h1>
-            <p className="hero-role">
-              Application Developer and Computer Science Student
+            <p className="status-pill">
+              <span className="status-dot" aria-hidden="true" />
+              Open to software engineering and ML roles
             </p>
-            <p className="hero-description">
-              I build software products with a practical eye for user flows,
-              reliable architecture, and machine learning systems. Currently
-              studying Computer Science at Binus University with a focus on
-              software engineering and applied ML.
+            <h1 id="hero-title">Alvrian Timotius</h1>
+            <p className="hero-lead">
+              Master's student in Computer Science at Binus University, building
+              ML systems and the software around them.
+            </p>
+            <p className="hero-sub">
+              Currently researching abstractive summarization for Indonesian.
+              Previously built web, mobile and computer-vision projects in teams
+              of three to five.
             </p>
 
-            <div className="profile-links" aria-label="Profile links">
-              <a
-                className="profile-button"
-                href="https://www.linkedin.com/in/alvrian-timotius/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={Icons.LinkedinIcon} alt="" />
-                <span>LinkedIn</span>
+            <div className="hero-actions">
+              {mailto && (
+                <a className="btn btn-primary" href={mailto}>
+                  <Icon name="mail" /> Email me
+                </a>
+              )}
+              {CONTACT.cvUrl && (
+                <a className="btn btn-ghost" href={CONTACT.cvUrl} target="_blank" rel="noopener noreferrer">
+                  <Icon name="download" /> Download CV (PDF)
+                </a>
+              )}
+              <a className="btn btn-ghost" href={CONTACT.github} target="_blank" rel="noopener noreferrer">
+                <Icon name="github" /> GitHub
               </a>
-              <a
-                className="profile-button"
-                href="https://github.com/alvrian"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={Icons.GithubIcon} alt="" />
-                <span>GitHub</span>
+              <a className="btn btn-ghost" href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
+                <Icon name="linkedin" /> LinkedIn
               </a>
             </div>
           </div>
 
-          <aside className="hero-panel" aria-label="Portfolio summary">
-            <div className="availability-card">
-              <span className="status-dot" />
-              <span>Open to software and ML opportunities</span>
+          <aside className="now-card" aria-label="Current work">
+            <div className="now-head">
+              <span className="eyebrow">Now</span>
+              <span className="now-status">Master's thesis · in progress</span>
             </div>
-            <div className="highlight-grid">
-              {highlights.map((item) => (
-                <div className="highlight-card" key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
-            <div className="skill-list">
-              {expertise.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
+            <h2>Indonesian abstractive summarization with BRIO + IndoBART</h2>
+            <p>
+              Adapting BRIO's candidate-ranking training to IndoBART and
+              evaluating the generated summaries.
+            </p>
+            <div className="divider" />
+            <dl className="stat-grid">
+              <div>
+                <dt>{publications.length}</dt>
+                <dd>peer-reviewed papers</dd>
+              </div>
+              <div>
+                <dt>{shippedProjects}</dt>
+                <dd>projects with code</dd>
+              </div>
+              <div>
+                <dt>{certifications.length}</dt>
+                <dd>certifications</dd>
+              </div>
+            </dl>
+            <ul className="chip-list" aria-label="Skills">
+              <li>Machine learning</li>
+              <li>Computer vision</li>
+              <li>React</li>
+              <li>Laravel</li>
+              <li>Express</li>
+            </ul>
           </aside>
-
-          <p className="sr-only">alvrian timotius hinandra Binus University</p>
         </section>
 
-        <section className="snap-section credentials-section" id="credentials">
-          <div className="section-heading compact">
-            <p className="eyebrow">Research and Growth</p>
-            <h2>Credentials</h2>
-            <p>
-              Academic publication work, practical certifications, and
-              continuing study across AI and cloud fundamentals.
+        <section id="work" className="container section" aria-labelledby="work-title">
+          <div className="section-head split">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 id="work-title">Projects</h2>
+            </div>
+            <p className="section-intro">
+              Each card shows the problem, my part in it, and the stack. Open a
+              project for the demo and repository.
             </p>
           </div>
-
-          <div className="credentials-row">
-            <article className="publication-card">
-              <p className="card-kicker">Publication</p>
-              <h3>
-                Comparative Analysis of Mamba, Itransformer, and Dlinear Models
-                on Spatial Dynamic Wind Power Dataset
-              </h3>
-              <a
-                className="text-link"
-                href="https://doi.org/10.1109/ISITIA71267.2026.11642365"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read publication
-              </a>
-            </article>
-            <article className="publication-card">
-              <p className="card-kicker">Publication</p>
-              <h3>
-                Comparison of Model Performance on Housing Business Using Linear
-                Regression, Random Forest Regressor, SVR, and Neural Network
-              </h3>
-              <a
-                className="text-link"
-                href="http://dx.doi.org/10.1016/j.procs.2024.10.343"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read publication
-              </a>
-            </article>
-          </div>
-
-          <div className="credentials-row cert-row">
-            <p className="card-kicker row-kicker">Courses and Certifications</p>
-            <div className="cert-scroll-track">
-              <img
-                src={Certificates.NLP}
-                alt="NVIDIA NLP certificate"
-                className="cert-card"
+          <div className="project-grid">
+            {projects.map((project) => (
+              <Card
+                key={project.title}
+                {...project}
+                media={mediaMap[project.media]}
+                demo={demoMap[project.demo]}
               />
-              <img
-                src={Certificates.ACA}
-                alt="ACA certificate"
-                className="cert-card"
-              />
-              <img
-                src={Certificates.DL}
-                alt="NVIDIA Deep Learning Fundamentals certificate"
-                className="cert-card"
-              />
-              <img
-                src={Certificates.UD}
-                alt="Udemy certificate"
-                className="cert-card"
-              />
-            </div>
+            ))}
           </div>
         </section>
 
-        <section className="snap-section project-section" id="projects">
-          <div className="section-heading">
-            <p className="eyebrow">Selected Work</p>
-            <h2>Projects</h2>
-            <p>
-              A focused collection of web, mobile, and machine learning work,
-              with demos and repositories where available.
-            </p>
+        <section id="research" className="container section" aria-labelledby="research-title">
+          <div className="section-head">
+            <p className="eyebrow">Research</p>
+            <h2 id="research-title">Publications</h2>
           </div>
+          <ul className="pub-list">
+            {publications.map((pub) => (
+              <li key={pub.url} className="pub-row">
+                <span className="pub-venue">{pub.venue}</span>
+                <span className="pub-title">{pub.title}</span>
+                <a href={pub.url} target="_blank" rel="noopener noreferrer">
+                  Read paper <Icon name="external" size={14} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <div className="carousel-shell">
-            <button
-              className="carousel-arrow left"
-              onClick={!isMobile ? scrollLeft : undefined}
-              disabled={isMobile}
-              aria-label="Previous projects"
-            >
-              <img src={Icons.BottomArrow} alt="" />
-            </button>
-            <div className="project-track" ref={carouselRef}>
-              {projects.map((project) => (
-                <Card
-                  key={project.title}
-                  title={project.title}
-                  category={project.category}
-                  desc={project.desc}
-                  media={mediaMap[project.media]}
-                  repo={project.repo}
-                  demo={demoMap[project.demo]}
-                  link={project.link}
-                />
-              ))}
+        <section id="credentials" className="container section" aria-labelledby="cred-title">
+          <div className="section-head">
+            <p className="eyebrow">Continuing study</p>
+            <h2 id="cred-title">Certifications</h2>
+          </div>
+          <ul className="cert-grid">
+            {certifications.map((cert) => (
+              <li key={cert.name} className="cert-card">
+                <span className="cert-issuer">{cert.issuer}</span>
+                <span className="cert-name">{cert.name}</span>
+                <a href={cert.image} target="_blank" rel="noopener noreferrer">
+                  View certificate <Icon name="external" size={14} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="contact" className="container section" aria-labelledby="contact-title">
+          <div className="contact-panel">
+            <div>
+              <h2 id="contact-title">Hiring for software or ML?</h2>
+              <p>
+                {mailto
+                  ? "Email is the fastest way to reach me. Based in Jakarta (UTC+7)."
+                  : "Message me on LinkedIn. Based in Jakarta (UTC+7)."}
+              </p>
             </div>
-            <button
-              className="carousel-arrow right"
-              onClick={!isMobile ? scrollRight : undefined}
-              disabled={isMobile}
-              aria-label="Next projects"
-            >
-              <img src={Icons.BottomArrow} alt="" />
-            </button>
+            <div className="contact-actions">
+              {mailto ? (
+                <a className="btn btn-primary" href={mailto}>
+                  <Icon name="mail" /> {CONTACT.email}
+                </a>
+              ) : (
+                <a className="btn btn-primary" href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Icon name="linkedin" /> Message on LinkedIn
+                </a>
+              )}
+              {CONTACT.cvUrl && (
+                <a className="btn btn-ghost" href={CONTACT.cvUrl} target="_blank" rel="noopener noreferrer">
+                  <Icon name="download" /> Download CV (PDF)
+                </a>
+              )}
+            </div>
           </div>
         </section>
       </main>
 
-      {showArrow && (
-        <div className="bottom-arrow-direction" aria-hidden="true">
-          <img src={Icons.BottomArrow} alt="" />
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <span>© {new Date().getFullYear()} Alvrian Timotius Hinandra</span>
+          <div className="footer-links">
+            <a href={CONTACT.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#top" onClick={(e) => scrollToSection(e, "top")}>Back to top</a>
+          </div>
         </div>
-      )}
+      </footer>
     </div>
   );
 }

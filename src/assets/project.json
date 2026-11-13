@@ -1,33 +1,46 @@
 [
   {
+    "title": "BRIO + IndoBART summarizer",
+    "category": "Research · NLP",
+    "problem": "Abstractive summarization for Indonesian, where strong pretrained summarizers are scarce.",
+    "context": "Master's thesis · in progress",
+    "role": "Sole researcher: adaptation, training runs and evaluation.",
+    "stack": ["IndoBART", "BRIO", "ROUGE"],
+    "desc": "My master's thesis adapts BRIO, a training method that teaches a summarizer to rank its own candidate summaries, to IndoBART for Indonesian text. The work covers fine-tuning, candidate generation and ROUGE-based evaluation. A write-up and code will be linked here when the thesis is complete."
+  },
+  {
     "title": "Fitter Mobile",
-    "category": "Mobile Development",
-    "desc": "Fitter mobile is a mobile application version of my previous project, Fitter. This Application is created using React Native, Expo, and Firebase. The main feature of this application is to recognize the type of food and its nutritional value using computer vision. This app is still under development. The prebuilt application can be downloaded on Github Repository.",
+    "category": "Mobile",
+    "problem": "Photograph a meal and get the food type and its nutritional value on your phone.",
+    "context": "Mobile follow-up to Fitter · in development",
+    "role": "",
+    "stack": ["React Native", "Expo", "Firebase"],
+    "desc": "Fitter Mobile brings my earlier Fitter project to mobile. It recognizes the type of food in a photo and shows its nutritional value. Built with React Native, Expo and Firebase. The app is still in development; a prebuilt APK can be downloaded from the GitHub repository.",
     "media": "FMobile",
     "repo": "https://github.com/alvrian/fitter-mobile",
     "demo": "FMobileDemo"
   },
   {
     "title": "Dover",
-    "category": "Machine Learning",
-    "desc": "Sea-Land Segmentation based on Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model From Optical Images. This is a project created for Computer Vision course that I took during 5th semester. I work with 3 other members to create this project. We use Superpixel Fuzzy C-Means Clustering and Modified Chan-Vese Model to segment the image into sea and land. We use Python and OpenCV to create this project. We also use Streamlit to create the web app.",
+    "category": "Computer vision",
+    "problem": "Separate sea from land in optical satellite images.",
+    "context": "Team of 4 · Computer Vision course",
+    "role": "",
+    "stack": ["Python", "OpenCV", "Fuzzy C-Means", "Streamlit"],
+    "desc": "Sea–land segmentation based on superpixel Fuzzy C-Means clustering and a modified Chan–Vese model, applied to optical images. Built in Python with OpenCV and deployed as a Streamlit web app. A four-person project for the Computer Vision course.",
     "media": "CV",
     "repo": "https://github.com/alvrian/compvis-deploy",
     "demo": "CvDemo",
     "link": "https://alvrian-compvis.streamlit.app/"
   },
   {
-    "title": "FarmByte",
-    "category": "Web Development",
-    "desc": "Welcome to FarmByte, an innovative platform designed to create a sustainable and mutually beneficial ecosystem by connecting farmers, compost producers, and restaurants. Our application promotes responsible consumption and production, aligning directly with SDG 12: Responsible Consumption and Production, which emphasizes efficient resource use, waste reduction, and sustainable practices. We created this project as part of our Web Programming course. I work with 4 other members to create this project using Laravel.",
-    "media": "Corn",
-    "repo": "https://github.com/alvrian/project-web-prog",
-    "demo": "FbDemo"
-  },
-  {
     "title": "Fitter",
-    "category": "Machine Learning/Deep Learning",
-    "desc": "Fitter is a Deep Learning created to recognize the type of food and its nutritional value. This is a collaborative project developed for Machine Learning course's final project. I work with 2 other members to create this project.",
+    "category": "Deep learning",
+    "problem": "Recognize a food from an image and estimate its nutritional value.",
+    "context": "Team of 3 · Machine Learning course",
+    "role": "",
+    "stack": ["Deep learning", "Streamlit"],
+    "desc": "Fitter is a deep learning model that recognizes the type of food in an image and estimates its nutritional value. A three-person final project for the Machine Learning course, with a Streamlit demo.",
     "media": "Fitter",
     "repo": "https://github.com/tiffanyjoycelyn/fitter",
     "demo": "FitterDemo",
@@ -35,10 +48,26 @@
   },
   {
     "title": "STEPCODE",
-    "category": "Web Development",
-    "desc": "STEPCODE is a collaborative project developed by me and four other members as part of our Software Engineering course. We created a platform to help individuals learn how to code, using technologies like typescript, React with Vite, Express, and Firebase. The unique feature of this platform is that each individuals can choose their own tutor based on others experience. Our team followed the SCRUM framework, organizing our work into sprints and holding daily standups to ensure everyone was aligned. We collaborated closely with a designated Product Owner who managed the backlog, and held sprint reviews to gather feedback on our progress.",
+    "category": "Web",
+    "problem": "A coding-learning platform where learners choose a tutor based on their experience.",
+    "context": "Team of 5 · Software Engineering course · Scrum",
+    "role": "",
+    "stack": ["TypeScript", "React + Vite", "Express", "Firebase"],
+    "desc": "STEPCODE helps people learn to code by letting each learner choose a tutor based on that tutor's experience. Built by a team of five for the Software Engineering course with TypeScript, React (Vite), Express and Firebase. The team worked in Scrum sprints with daily standups, sprint reviews and a designated Product Owner managing the backlog.",
     "media": "SC",
     "repo": "https://github.com/Andrew7-7/AOL_SoftEng",
     "demo": "ScDemo"
+  },
+  {
+    "title": "FarmByte",
+    "category": "Web",
+    "problem": "Connect farmers, compost producers and restaurants to reduce food waste (SDG 12).",
+    "context": "Team of 5 · Web Programming course",
+    "role": "",
+    "stack": ["Laravel", "PHP"],
+    "desc": "FarmByte connects farmers, compost producers and restaurants so that produce and food waste move between them efficiently, in line with SDG 12 (Responsible Consumption and Production). Built with Laravel by a team of five for the Web Programming course.",
+    "media": "Corn",
+    "repo": "https://github.com/alvrian/project-web-prog",
+    "demo": "FbDemo"
   }
 ]
